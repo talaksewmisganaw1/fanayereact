@@ -33,7 +33,7 @@ const guna_Michael_ElevationsImport = import.meta.glob('/src/assets/guna_Michael
 const guna_Michael_SectionsImport = import.meta.glob('/src/assets/guna_Michael_/sections/*.png', { eager: true });
 const guna_Michael_FloorplansImport = import.meta.glob('/src/assets/guna_Michael_/floor plans/*.png', { eager: true });
 const guna_Michael_SiteplansImport = import.meta.glob('/src/assets/guna_Michael_/siteplan/*.png', { eager: true });
-const guna_Michael_RendersImport = import.meta.glob('/src/assets/guna_Michael_/renders/*.png', { eager: true });
+const guna_Michael_RendersImport = import.meta.glob('/src/assets/guna_Michael_/renders/*.{jpg,png,jpeg,webp}', { eager: true });
 
 
 const guna_Michael_Elevations = Object.values(guna_Michael_ElevationsImport).map(img => img.default);
@@ -45,7 +45,7 @@ const guna_Michael_Renders = Object.values(guna_Michael_RendersImport).map(img =
 const eskinderElevationsImport = import.meta.glob('/src/assets/eskinder/elevations/*.png', { eager: true });
 const eskinderSectionsImport = import.meta.glob('/src/assets/eskinder/sections/*.png', { eager: true });
 const eskinderFloorplansImport = import.meta.glob('/src/assets/eskinder/floor plans/*.png', { eager: true });
-const eskinderRendersImport = import.meta.glob('/src/assets/eskinder/renders/*.{jpg,png,jpeg}', { eager: true });
+const eskinderRendersImport = import.meta.glob('/src/assets/eskinder/renders/*.{jpg,png,jpeg,webp}', { eager: true });
 const eskinderOthersImport = import.meta.glob('/src/assets/eskinder/others/*.png', { eager: true });
 const eskinderDetailsImport = import.meta.glob('/src/assets/eskinder/details/*.png', { eager: true });
 
@@ -59,14 +59,14 @@ const eskinderDetails = Object.values(eskinderDetailsImport).map(img => img.defa
 const fikirteElevationsImport = import.meta.glob('/src/assets/fikirte/elevations/*.png', { eager: true });
 const fikirteSectionsImport = import.meta.glob('/src/assets/fikirte/sections/*.png', { eager: true });
 const fikirteFloorplansImport = import.meta.glob('/src/assets/fikirte/floor plans/*.{jpg,png,jpeg}', { eager: true });
-const fikirteRendersImport = import.meta.glob('/src/assets/fikirte/renders/*.{jpg,png,jpeg}', { eager: true });
+const fikirteRendersImport = import.meta.glob('/src/assets/fikirte/renders/*.{jpg,png,jpeg,webp}', { eager: true });
 
 const fikirteElevations = Object.values(fikirteElevationsImport).map(img => img.default);
 const fikirteSections = Object.values(fikirteSectionsImport).map(img => img.default);
 const fikirteFloorplans = Object.values(fikirteFloorplansImport).map(img => img.default);
 const fikirteRenders = Object.values(fikirteRendersImport).map(img => img.default);
 
-const interiorRendersImport = import.meta.glob('/src/assets/interior/*.{jpg,png,jpeg}', { eager: true });
+const interiorRendersImport = import.meta.glob('/src/assets/interior/*.{jpg,png,jpeg,webp}', { eager: true });
 const interiorRenders = Object.values(interiorRendersImport).map(img => img.default);
 
 
@@ -396,7 +396,7 @@ export default function ProjectDetail() {
         ]
     },
     {
-        title: "G+2 Residence (Addis Ababa)",
+        title: "G+2 Residence",
         year: "2018 E.C.",
         location: "Addis Ababa, Ethiopia",
         description: [
@@ -545,7 +545,7 @@ export default function ProjectDetail() {
         ]
     },
     {
-        title: "G+2 Residence (Cub City, Lemi Kura)",
+        title: "G+2 Residence",
         year: "2018 E.C.",
         location: "Addis Ababa, Ethiopia",
         description: [
