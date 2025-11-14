@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBriefcase, faGraduationCap, faDesktop, faBook, faGlobe, faHandshake, faBarsProgress } from '@fortawesome/free-solid-svg-icons';
-import mainPhoto from '../assets/main-photo2.png'
-import bgrpic from '../assets/green-bgr4.png'
+import mainPhoto from '../assets/main-photo2.webp'
+import bgrpic from '../assets/green-bgr4.webp'
 import officeLogo from '../assets/logos/msoffice-logo.png'
 import autoCADLogo from '../assets/logos/autocad-logo.png'
 import revitLogo from '../assets/logos/revit.png'

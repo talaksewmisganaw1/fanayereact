@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import piassaImg from "../assets/covers/piassa.jpg";
-import gunaMikael from "../assets/covers/guna_Mikael.png";
-import eskinderImg from "../assets/covers/eskinder.jpg";
-import fikirteImg from "../assets/covers/fikirte.jpg";
-import freelanceImg from "../assets/covers/freelance.png";
-import hanaImg from "../assets/covers/hanna.png"
+import piassaImg from "../assets/covers/piassa.webp";
+import gunaMikael from "../assets/covers/guna_Mikael.webp";
+import eskinderImg from "../assets/covers/eskinder.webp";
+import fikirteImg from "../assets/covers/fikirte.webp";
+import freelanceImg from "../assets/covers/freelance.webp";
+import hanaImg from "../assets/covers/hanna.webp";
 
 const projects = [
   {

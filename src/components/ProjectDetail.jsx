@@ -7,7 +7,7 @@ const piassaElevationsImport = import.meta.glob('/src/assets/piassa/elevations/*
 const piassaSectionsImport = import.meta.glob('/src/assets/piassa/sections/*.png', { eager: true });
 const piassaFloorplansImport = import.meta.glob('/src/assets/piassa/floor plans/*.png', { eager: true });
 const piassaSiteplansImport = import.meta.glob('/src/assets/piassa/siteplan/*.png', { eager: true });
-const piassaRendersImport = import.meta.glob('/src/assets/piassa/renders/*.{jpg,png,jpeg}', { eager: true });
+const piassaRendersImport = import.meta.glob('/src/assets/piassa/renders/*.{jpg,png,jpeg,webp}', { eager: true });
 const piassaOthersImport = import.meta.glob('/src/assets/piassa/others/*.png', { eager: true });
 
 const piassaElevations = Object.values(piassaElevationsImport).map(img => img.default);
@@ -21,7 +21,7 @@ const hannaElevationsImport = import.meta.glob('/src/assets/hanna/elevations/*.p
 const hannaSectionsImport = import.meta.glob('/src/assets/hanna/sections/*.png', { eager: true });
 const hannaFloorplansImport = import.meta.glob('/src/assets/hanna/floor plans/*.png', { eager: true });
 const hannaSiteplansImport = import.meta.glob('/src/assets/hanna/siteplan/*.png', { eager: true });
-const hannaRendersImport = import.meta.glob('/src/assets/hanna/renders/*.png', { eager: true });
+const hannaRendersImport = import.meta.glob('/src/assets/hanna/renders/*.{jpg,png,jpeg,webp}', { eager: true });
 
 const hannaElevations = Object.values(hannaElevationsImport).map(img => img.default);
 const hannaSections = Object.values(hannaSectionsImport).map(img => img.default);
@@ -74,7 +74,7 @@ export default function ProjectDetail() {
     const navigate = useNavigate();
 
 
- console.log(fikirteRenders)
+
     const projectsList = [
       {   
         title: "Legacy Apartment",
@@ -776,17 +776,12 @@ export default function ProjectDetail() {
                 // key={index}
                 className="relative w-fit m-auto group rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
               >
-
-                {(() => {
-                        console.log(project.renders);
-
-                      })()}
                 {/* Image Container */}
                 <div className="relative w-fit h-148 m-auto bg-linear-to-br from-primary/20 to-accent/20 overflow-hidden">
                   <img
                     src={project.renders[currentPhoto].url}
                     alt={project.renders[currentPhoto].title}
-                    className="h-full w-auto object-cover m-auto group-hover:scale-110 transition-transform duration-500"
+                    className="h-full w-auto object-cover m-auto group-hover:scale-105 transition-transform duration-500"
                   />
 
                   {/* Overlay */}
@@ -799,7 +794,7 @@ export default function ProjectDetail() {
                         prev > 0 ? prev - 1: project.renders.length-1
                       )
                     }
-                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-secondary rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110">
+                    className="absolute left-4 top-1/2 -translate-y-1/2 lg:bg-white/90 bg-white hover:bg-white text-secondary rounded-full p-2 opacity-100 lg:opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110">
                     <ChevronLeft size={20} />
                   </button>
                   <button
@@ -808,7 +803,7 @@ export default function ProjectDetail() {
                         prev < project.renders.length - 1 ? prev + 1 : 0
                       )
                     }
-                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-secondary rounded-full p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110">
+                    className="absolute right-4 top-1/2 -translate-y-1/2 lg:bg-white/90 bg-white hover:bg-white text-secondary rounded-full p-2 opacity-100 lg:opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110">
                       <ChevronRight size={20} />
                   </button>
                 </div>

@@ -18,7 +18,7 @@ export default function Navigation() {
           {/* Logo */}
           <div className="shrink-0">
             <a href="/" className="text-2xl font-bold text-primary">
-              Fanaye Girmaaaaa
+              Fanaye Girma
             </a>
           </div>
 

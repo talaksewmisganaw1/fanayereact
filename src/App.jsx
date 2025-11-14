@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense, lazy }  from 'react'
 import { Routes, Route } from "react-router-dom"
 import FeaturedProjects from './components/FeaturedProjects'
 // import Services from './components/Services'
@@ -7,7 +7,7 @@ import Navigation from './components/Navigation'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import BuildingLoader from './components/BuildingLoader'
-import ProjectDetail from './components/ProjectDetail'
+const ProjectDetail = lazy(() => import("./components/ProjectDetail"));
 
 export default function App() {
   return (
