@@ -1,18 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-export default function BuildingLoader() {
-  const [isVisible, setIsVisible] = useState(true);
+export default function BuildingLoader({setLoader}) {
 
   useEffect(() => {
     // Hide loader after 3.5 seconds (animation duration)
     const timer = setTimeout(() => {
-      setIsVisible(false);
+      setLoader(false)
     }, 3500);
 
     return () => clearTimeout(timer);
   }, []);
-
-  if (!isVisible) return null;
 
   return (
     <div

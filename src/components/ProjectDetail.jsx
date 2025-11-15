@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate  } from "react-router-dom";
-import { ChartNoAxesColumnDecreasing, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import ZoomModal from "./Zoom";
 
 const piassaElevationsImport = import.meta.glob('/src/assets/piassa/elevations/*.png', { eager: true });
@@ -70,7 +70,7 @@ const interiorRendersImport = import.meta.glob('/src/assets/interior/*.{jpg,png,
 const interiorRenders = Object.values(interiorRendersImport).map(img => img.default);
 
 
-export default function ProjectDetail() {
+export default function ProjectDetail({projectIndex, setHome}) {
     const navigate = useNavigate();
 
 
@@ -664,9 +664,10 @@ export default function ProjectDetail() {
     ];
 
     const location = useLocation();
-    const { index } = location.state || {}; // receives the data
     
-    const project = projectsList[index]
+    const project = projectsList[projectIndex]
+
+    console.log(project)
 
     const [currentPhoto, setCurrentPhoto] = useState(0);
 
@@ -724,7 +725,7 @@ export default function ProjectDetail() {
       {/* Back Button */}
       <button className="z-100 mb-9 sticky top-9 inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:scale-105 font-medium text-sm"
         onClick={() => {
-          navigate("/");
+          setHome(true)
           window.scrollTo(0, 0);
           }
         }

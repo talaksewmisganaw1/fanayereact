@@ -62,7 +62,7 @@ const projects = [
 
 
 
-export default function FeaturedProjects() {
+export default function FeaturedProjects({setHome, setProjectIndex}) {
   const navigate = useNavigate();
 
   return (
@@ -86,7 +86,8 @@ export default function FeaturedProjects() {
             <div key={project.id} className="group cursor-pointer">
               <div 
                 onClick={() => {
-                  navigate("/project-detail", { state: { index } });
+                  setHome(false)
+                  setProjectIndex(index)
                   window.scrollTo(0, 0);
                 }}
 
@@ -99,7 +100,8 @@ export default function FeaturedProjects() {
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <button 
                     onClick={() => {
-                      navigate("/project-detail", { state: { index } });
+                      setHome(false)
+                      setProjectIndex(index)
                       window.scrollTo(0, 0);
                     }}
                     className="px-6 py-2 bg-primary text-primary-foreground rounded-lg flex items-center gap-2 font-medium">
