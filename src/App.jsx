@@ -13,20 +13,22 @@ export default function App() {
   return (
     <div>
       <BuildingLoader />
-      <Routes>
-        {/* Route 1: Home page */}
-        <Route path="/" element={
-          <>
-            <Navigation />
-            <FeaturedProjects />
-            <About />
-            <Contact />
-          </>
-        } />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          {/* Route 1: Home page */}
+          <Route path="/" element={
+            <>
+              <Navigation />
+              <FeaturedProjects />
+              <About />
+              <Contact />
+            </>
+          } />
 
-        {/* Route 2: Project detail page */}
-        <Route path="/project-detail" element={<ProjectDetail />} />
-      </Routes>
+          {/* Route 2: Project detail page */}
+          <Route path="/project-detail" element={<ProjectDetail />} />
+        </Routes>
+      </Suspense>
     </div>
   )
 }

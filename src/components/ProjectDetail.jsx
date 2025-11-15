@@ -818,19 +818,23 @@ export default function ProjectDetail() {
         </div>
       </div>
 
+      <div className=" my-9 mx-auto w-fit flex justify-center items-center shadow-lg">
+        <iframe width="1120" height="630" src="https://www.youtube.com/embed/3BLfain9X_w?si=cag90jbKqpg_Gl1C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+
 
       <div className="py-16 sm:py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {project.visuals?.length > 0 && <div className="flex flex-col gap-3">
             <h2 className="text-3xl font-bold text-foreground">Architectural Drawings</h2>
             {/* <button className="">lsdfk</button> */}
-            <a
+            {/* <a
               href=""
               download=""
               className="w-fit mb-12 inline-flex items-center gap-2 px-4 pb-2 underline text-foreground rounded-lg hover:opacity-55 font-medium text-sm"
             >
               Click here to download Architectural Drawings
-            </a>
+            </a> */}
           </div>
           }
           
