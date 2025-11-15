@@ -101,6 +101,7 @@ export default function ProjectDetail() {
             url: piassaRenders[2]
           }
         ], 
+        video: true,
         visuals: [
           {
             type: "Site Plan",
@@ -720,19 +721,21 @@ export default function ProjectDetail() {
         <div className="h-1 w-20 bg-linear-to-r from-primary to-accent rounded-full" />
       </div>
 
+      {/* Back Button */}
+      <button className="z-100 mb-9 sticky top-9 inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:scale-105 font-medium text-sm"
+        onClick={() => {
+          navigate("/");
+          window.scrollTo(0, 0);
+          }
+        }
+      >
+        <ChevronLeft size={18} />
+        Back to home
+      </button>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Column - Content */}
         <div className="space-y-8">
-            {/* Back Button */}
-          <button className="mb-9 inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:scale-105 font-medium text-sm"
-            onClick={() => {
-                navigate("/");
-              }
-            }
-          >
-            <ChevronLeft size={18} />
-            Back to home
-          </button>
+
 
             {/* Content Card */}
             <div className="bg-card rounded-2xl p-8 shadow-lg border border-border/50 backdrop-blur-sm hover:shadow-2xl transition-all duration-500 hover:border-primary/30">
@@ -777,15 +780,15 @@ export default function ProjectDetail() {
                 className="relative w-fit m-auto group rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
               >
                 {/* Image Container */}
-                <div className="relative w-fit h-148 m-auto bg-linear-to-br from-primary/20 to-accent/20 overflow-hidden">
+                <div className="relative md:w-fit md:h-148 m-auto bg-linear-to-br from-primary/20 to-accent/20 overflow-hidden">
                   <img
                     src={project.renders[currentPhoto].url}
                     alt={project.renders[currentPhoto].title}
-                    className="h-full w-auto object-cover m-auto group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-auto md:h-full md:w-auto object-cover m-auto group-hover:scale-105 transition-transform duration-500"
                   />
 
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                   {/* Navigation Buttons */}
                   <button
@@ -809,7 +812,7 @@ export default function ProjectDetail() {
                 </div>
 
                 {/* Image Info */}
-                {/* <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                {/* <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/60 to-transparent p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                   <p className="text-white font-semibold">{project.renders[currentPhoto].title}</p>
                   <p className="text-white/80 text-sm">Beautiful project photography</p>
                 </div> */}
@@ -817,16 +820,27 @@ export default function ProjectDetail() {
 
         </div>
       </div>
-
-      <div className=" my-9 mx-auto w-fit flex justify-center items-center shadow-lg">
-        <iframe width="1120" height="630" src="https://www.youtube.com/embed/3BLfain9X_w?si=cag90jbKqpg_Gl1C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      {
+      project.video && 
+      <div className="col-span-2 w:[90vw] lg:w-fit my-9 mx-auto flex justify-center items-center">
+        <iframe
+          className="w-[560px] h-[315px] lg:w-[1120px] lg:h-[630px]"
+          src="https://www.youtube.com/embed/3BLfain9X_w?si=cag90jbKqpg_Gl1C"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        ></iframe>
       </div>
+      }
+
 
 
       <div className="py-16 sm:py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {project.visuals?.length > 0 && <div className="flex flex-col gap-3">
-            <h2 className="text-3xl font-bold text-foreground">Architectural Drawings</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-11">Architectural Drawings</h2>
             {/* <button className="">lsdfk</button> */}
             {/* <a
               href=""

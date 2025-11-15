@@ -43,7 +43,7 @@ export default function Contact() {
                 <Mail className="w-6 h-6 text-primary" />
               </div>
               {/* <h3 className="font-bold mb-2">Email</h3> */}
-              <a className="text-foreground/60 wrap-break-word" href="mailto:girmafanaye5@gmail.com">girmafanaye5@gmail.com</a>
+              <a className="text-foreground/60 wrap-break-word" href="mailto:girmafanaye5@gmail.com" target="_blank">girmafanaye5@gmail.com</a>
             </div>
 
             <div className="bg-card rounded-lg p-8 border border-border text-center">
@@ -62,7 +62,7 @@ export default function Contact() {
               <p className="text-foreground/60">Addis Ababa, Ethiopia</p>
             </div>
             <div className={`${styles['contact-btns']} flex items-center gap-2 md:col-span-2 justify-self-center -mt-8`}>
-              <a className={`${styles['icon-container']} mt-16 w-16 h-16 text-2xl flex flex-col items-center justify-center gap-2 transition-all duration-500 ease-in-out no-underline`} href="https://t.me/fanayegirma">
+              <a className={`${styles['icon-container']} mt-16 w-16 h-16 text-2xl flex flex-col items-center justify-center gap-2 transition-all duration-500 ease-in-out no-underline`} target="_blank" href="https://t.me/fanayegirma">
                   <div className={`${styles.icon} ${styles.telegram} w-12 h-12 flex relative transition-all duration-300 ease-in-out`}>
                       <span className={`${styles['main-icon']} absolute inset-0 flex items-center justify-center opacity-80`}><FontAwesomeIcon icon={faTelegram} /></span>
                       <span className="layer absolute inset-0"></span>
@@ -71,7 +71,7 @@ export default function Contact() {
                   </div>
                   <div className={styles.text}>Telegram</div>
               </a>
-              <a className={`${styles['icon-container']} mt-16 w-16 h-16 text-2xl flex flex-col items-center justify-center gap-2 transition-all duration-500 ease-in-out no-underline`} href="https://wa.me/+251921266469">
+              <a className={`${styles['icon-container']} mt-16 w-16 h-16 text-2xl flex flex-col items-center justify-center gap-2 transition-all duration-500 ease-in-out no-underline`} target="_blank" href="https://wa.me/+251921266469">
                   <div className={`${styles.icon} ${styles.whatsapp} w-12 h-12 flex relative transition-all duration-300 ease-in-out`}>
                       <span className={`${styles['main-icon']} absolute inset-0 flex items-center justify-center opacity-80`}><FontAwesomeIcon icon={faWhatsapp} /></span>
                       <span className="layer absolute inset-0"></span>
@@ -80,7 +80,7 @@ export default function Contact() {
                   </div>
                   <div className={styles.text}>WhatsApp</div>
               </a>
-              <a className={`${styles['icon-container']} mt-16 w-16 h-16 text-2xl flex flex-col items-center justify-center gap-2 transition-all duration-500 ease-in-out no-underline`} href="https://www.instagram.com/girmafanaye5">
+              <a className={`${styles['icon-container']} mt-16 w-16 h-16 text-2xl flex flex-col items-center justify-center gap-2 transition-all duration-500 ease-in-out no-underline`} target="_blank" href="https://www.instagram.com/girmafanaye5">
                   <div className={`${styles.icon} ${styles.instagram} w-12 h-12 flex relative transition-all duration-300 ease-in-out`}>
                       <span className={`${styles['main-icon']} absolute inset-0 flex items-center justify-center opacity-80`}><FontAwesomeIcon icon={faInstagram} /></span>
                       <span className="layer absolute inset-0"></span>
@@ -89,7 +89,7 @@ export default function Contact() {
                   </div>
                   <div className={styles.text}>Instagram</div>
               </a>
-              <a className={`${styles['icon-container']} mt-16 w-16 h-16 text-2xl flex flex-col items-center justify-center gap-2 transition-all duration-500 ease-in-out no-underline`} href="https://t.me/fanayegirma">
+              <a className={`${styles['icon-container']} mt-16 w-16 h-16 text-2xl flex flex-col items-center justify-center gap-2 transition-all duration-500 ease-in-out no-underline`} target="_blank" href="https://t.me/fanayegirma">
                   <div className={`${styles.icon} ${styles.facebook} w-12 h-12 flex relative transition-all duration-300 ease-in-out`}>
                       <span className={`${styles['main-icon']} absolute inset-0 flex items-center justify-center opacity-80`}><FontAwesomeIcon icon={faFacebookF} /></span>
                       <span className="layer absolute inset-0"></span>

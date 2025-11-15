@@ -58,6 +58,15 @@ export default function About() {
                         </div>
                         <h3 className="role ml-1 text-base font-semibold">Freelancer</h3>
                     </div>
+                    <div className="profile-description experience flex flex-col gap-4 ml-7 md:ml-14 mb-5">
+                        <div className="sb-ttl-yr flex justify-between items-center gap-8">
+                            <ul className="list-disc">
+                                <li><div className="sub-title text-lg font-[550]">Afewerk and Partners Architects</div></li>
+                            </ul>
+                            <div className="year text-base">June, 2017 E.C. – Present</div>
+                        </div>
+                        <h3 className="role ml-1 text-base font-semibold">Junior Architect</h3>
+                    </div>
                 </div>
                 
                 <div className="profile academic-projects mt-12">

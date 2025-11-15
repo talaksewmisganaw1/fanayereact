@@ -84,7 +84,13 @@ export default function FeaturedProjects() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div key={project.id} className="group cursor-pointer">
-              <div className="relative h-64 rounded-lg overflow-hidden mb-4">
+              <div 
+                onClick={() => {
+                  navigate("/project-detail", { state: { index } });
+                  window.scrollTo(0, 0);
+                }}
+
+              className="relative h-64 rounded-lg overflow-hidden mb-4">
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
@@ -92,9 +98,10 @@ export default function FeaturedProjects() {
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <button 
-                    onClick={() =>
-                      navigate("/project-detail", { state: {index} })
-                    } 
+                    onClick={() => {
+                      navigate("/project-detail", { state: { index } });
+                      window.scrollTo(0, 0);
+                    }}
                     className="px-6 py-2 bg-primary text-primary-foreground rounded-lg flex items-center gap-2 font-medium">
                     View Project
                     <ChevronRight className="w-4 h-4" />
