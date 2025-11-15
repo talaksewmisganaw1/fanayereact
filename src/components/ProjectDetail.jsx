@@ -81,7 +81,7 @@ export default function ProjectDetail() {
         year: "2018 E.C.",
         location: "Addis Ababa, Ethiopia",
         description: [
-          "A G+11 residential apartment located in Piassa. I was responsible for preparing the complete working drawings, ensuring that structural and architectural details were accurate and construction-ready.",
+          "A G+11 mixed apartment located in Piassa. I was responsible for preparing the complete working drawings, ensuring that architectural details were accurate and construction-ready.",
           "I also created a high-quality video rendering to help visualize the building's design, materials, and overall aesthetic. The renderings provided a clear understanding of spatial relationships and design intent for the client."
         ],
         renders: [
@@ -321,7 +321,7 @@ export default function ProjectDetail() {
         year: "2018 E.C.",
         location: "Addis Ababa, Ethiopia",
         description: [
-          "This project involved the renewal of Gunna St. Michael Church. I focused on creating comprehensive restoration plans, producing detailed drawings that addressed both structural and architectural elements.",
+          "This project involved the renewal of Gunna St. Michael Church. I focused on producing detailed working drawings that addressed both structural and architectural elements.",
           "I also developed visualizations to guide the renovation process, ensuring that the historical and cultural significance of the church was preserved while introducing modern improvements where needed."
         ],
         renders: [
@@ -401,7 +401,7 @@ export default function ProjectDetail() {
         year: "2018 E.C.",
         location: "Addis Ababa, Ethiopia",
         description: [
-          "A G+2 residential building. I prepared full working drawings and detailed drawings covering structure, interiors, and exterior finishes to ensure the project could be built accurately.",
+          "A G+2 residential building. I prepared full working drawings and detailed drawings covering interiors, and exterior finishes to ensure the project could be built accurately.",
           "The detailed documentation allowed for smooth communication with contractors, minimizing errors during construction and maintaining the integrity of the original design."
         ],
         renders: [

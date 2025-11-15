@@ -12,7 +12,7 @@ const projects = [
   {
     id: 1,
     title: "Legacy Apartment",
-    category: "Residential",
+    category: "Mixed",
     image: piassaImg,
     description:
       "G+11 Apartment I paticipated in working drawings and creating detailed video rendering.",
@@ -28,14 +28,14 @@ const projects = [
   {
     id: 3,
     title: "Gunna St. Michael Church",
-    category: "Cultural",
+    category: "Religious",
     image: gunaMikael,
     description:
       "A project of Gunna St. Michael Church I participated in producing detailed plans and visualizations.",
   },
   {
     id: 4,
-    title: "G+2 Residence (Addis Ababa)",
+    title: "G+2 Residence",
     category: "Residential",
     image: eskinderImg,
     description:
@@ -43,7 +43,7 @@ const projects = [
   },
   {
     id: 5,
-    title: "G+2 Residence (Cub City, Lemi Kura)",
+    title: "G+2 Residence",
     category: "Residential",
     image: fikirteImg,
     description:
