@@ -3,66 +3,42 @@ import { useLocation, useNavigate  } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import ZoomModal from "./Zoom";
 
-const piassaElevationsImport = import.meta.glob('/src/assets/piassa/elevations/*.png', { eager: true });
-const piassaSectionsImport = import.meta.glob('/src/assets/piassa/sections/*.png', { eager: true });
+
 const piassaFloorplansImport = import.meta.glob('/src/assets/piassa/floor plans/*.png', { eager: true });
 const piassaSiteplansImport = import.meta.glob('/src/assets/piassa/siteplan/*.png', { eager: true });
 const piassaRendersImport = import.meta.glob('/src/assets/piassa/renders/*.{jpg,png,jpeg,webp}', { eager: true });
-const piassaOthersImport = import.meta.glob('/src/assets/piassa/others/*.png', { eager: true });
 
-const piassaElevations = Object.values(piassaElevationsImport).map(img => img.default);
-const piassaSections = Object.values(piassaSectionsImport).map(img => img.default);
 const piassaFloorplans = Object.values(piassaFloorplansImport).map(img => img.default);
 const piassaSiteplans = Object.values(piassaSiteplansImport).map(img => img.default);
 const piassaRenders = Object.values(piassaRendersImport).map(img => img.default);
-const piassaOthers = Object.values(piassaOthersImport).map(img => img.default);
 
-const hannaElevationsImport = import.meta.glob('/src/assets/hanna/elevations/*.png', { eager: true });
-const hannaSectionsImport = import.meta.glob('/src/assets/hanna/sections/*.png', { eager: true });
 const hannaFloorplansImport = import.meta.glob('/src/assets/hanna/floor plans/*.png', { eager: true });
 const hannaSiteplansImport = import.meta.glob('/src/assets/hanna/siteplan/*.png', { eager: true });
 const hannaRendersImport = import.meta.glob('/src/assets/hanna/renders/*.{jpg,png,jpeg,webp}', { eager: true });
 
-const hannaElevations = Object.values(hannaElevationsImport).map(img => img.default);
-const hannaSections = Object.values(hannaSectionsImport).map(img => img.default);
 const hannaFloorplans = Object.values(hannaFloorplansImport).map(img => img.default);
 const hannaSiteplans = Object.values(hannaSiteplansImport).map(img => img.default);
 const hannaRenders = Object.values(hannaRendersImport).map(img => img.default);
 
-const guna_Michael_ElevationsImport = import.meta.glob('/src/assets/guna_Michael_/elevations/*.png', { eager: true });
-const guna_Michael_SectionsImport = import.meta.glob('/src/assets/guna_Michael_/sections/*.png', { eager: true });
 const guna_Michael_FloorplansImport = import.meta.glob('/src/assets/guna_Michael_/floor plans/*.png', { eager: true });
 const guna_Michael_SiteplansImport = import.meta.glob('/src/assets/guna_Michael_/siteplan/*.png', { eager: true });
 const guna_Michael_RendersImport = import.meta.glob('/src/assets/guna_Michael_/renders/*.{jpg,png,jpeg,webp}', { eager: true });
 
 
-const guna_Michael_Elevations = Object.values(guna_Michael_ElevationsImport).map(img => img.default);
-const guna_Michael_Sections = Object.values(guna_Michael_SectionsImport).map(img => img.default);
 const guna_Michael_Floorplans = Object.values(guna_Michael_FloorplansImport).map(img => img.default);
 const guna_Michael_Siteplans = Object.values(guna_Michael_SiteplansImport).map(img => img.default);
 const guna_Michael_Renders = Object.values(guna_Michael_RendersImport).map(img => img.default);
 
-const eskinderElevationsImport = import.meta.glob('/src/assets/eskinder/elevations/*.png', { eager: true });
-const eskinderSectionsImport = import.meta.glob('/src/assets/eskinder/sections/*.png', { eager: true });
 const eskinderFloorplansImport = import.meta.glob('/src/assets/eskinder/floor plans/*.png', { eager: true });
 const eskinderRendersImport = import.meta.glob('/src/assets/eskinder/renders/*.{jpg,png,jpeg,webp}', { eager: true });
-const eskinderOthersImport = import.meta.glob('/src/assets/eskinder/others/*.png', { eager: true });
 const eskinderDetailsImport = import.meta.glob('/src/assets/eskinder/details/*.png', { eager: true });
 
-const eskinderElevations = Object.values(eskinderElevationsImport).map(img => img.default);
-const eskinderSections = Object.values(eskinderSectionsImport).map(img => img.default);
 const eskinderFloorplans = Object.values(eskinderFloorplansImport).map(img => img.default);
 const eskinderRenders = Object.values(eskinderRendersImport).map(img => img.default);
-const eskinderOthers = Object.values(eskinderOthersImport).map(img => img.default);
-const eskinderDetails = Object.values(eskinderDetailsImport).map(img => img.default);
 
-const fikirteElevationsImport = import.meta.glob('/src/assets/fikirte/elevations/*.png', { eager: true });
-const fikirteSectionsImport = import.meta.glob('/src/assets/fikirte/sections/*.png', { eager: true });
 const fikirteFloorplansImport = import.meta.glob('/src/assets/fikirte/floor plans/*.{jpg,png,jpeg}', { eager: true });
 const fikirteRendersImport = import.meta.glob('/src/assets/fikirte/renders/*.{jpg,png,jpeg,webp}', { eager: true });
 
-const fikirteElevations = Object.values(fikirteElevationsImport).map(img => img.default);
-const fikirteSections = Object.values(fikirteSectionsImport).map(img => img.default);
 const fikirteFloorplans = Object.values(fikirteFloorplansImport).map(img => img.default);
 const fikirteRenders = Object.values(fikirteRendersImport).map(img => img.default);
 
@@ -84,23 +60,31 @@ export default function ProjectDetail({projectIndex, setHome}) {
           "A G+11 mixed apartment located in Piassa. I was responsible for preparing the complete working drawings, ensuring that architectural details were accurate and construction-ready.",
           "I also created a high-quality video rendering to help visualize the building's design, materials, and overall aesthetic. The renderings provided a clear understanding of spatial relationships and design intent for the client."
         ],
-        renders: [
+        contents: [
           {
-            id: 1,  
-            title: "Image 1",
-            url: piassaRenders[0]
-          },
-          {
-            id: 2,  
-            title: "Image 2",
-            url: piassaRenders[1]
-          },
-          {
-            id: 3,  
-            title: "Image 3",
-            url: piassaRenders[2]
+            text: "\“ Our design embraces Piassa's essence with a sophisticated color palette. A natural gradient of browns, from light to dark, creates elegant harmony with the historic surroundings,lending timeless warmth and distinction to Addis Legacy Apartment.\”",
+            author: "Afewerk K",
+            img: piassaRenders[0]
+          },  {
+            text: "designed using a cold-formed steel structure, allowing for precise, lightweight, and highly durable construction. This method supports flexible layouts and clean architectural lines, making it ideal for modern design while ensuring long-term structural stability. The use of cold-formed construction enables faster build times and efficient material usage, while also providing the freedom to create open, airy spaces and multi-level volumes. This approach combines technical innovation with aesthetic clarity, resulting in a residence that is both contemporary and resilient.",
+            img: piassaRenders[1]
+          }, {
+            text: "open and wide windows that maximize natural light and create seamless visual connections with the outdoors. These expansive openings enhance the sense of space, making interiors feel bright, airy, and welcoming. Strategically placed, the large windows also promote natural ventilation and frame carefully considered views, strengthening the relationship between the home and its surroundings. This approach combines functionality with modern aesthetics, resulting in a living environment that is both comfortable and visually engaging.",
+            img: piassaRenders[2]
+          }, {
+            text: "designed with a focus on spacious, well-organized interiors that maximize comfort and functionality. Thoughtful layout planning ensures smooth circulation between rooms and creates clearly defined areas for living, dining, and private activities. Generous ceiling heights, open-plan arrangements, and careful zoning enhance the sense of openness while allowing flexibility for different uses. The result is an interior that feels expansive, inviting, and perfectly tailored to the lifestyle of its residents.",
+            img: piassaRenders[3]
+          }, {
+            text: "",
+            img: piassaRenders[4]
+          }, {
+            text: "",
+            img: piassaRenders[5]
+          }, {
+            text: "",
+            img: piassaRenders[6]
           }
-        ], 
+        ],
         video: true,
         visuals: [
           {
@@ -156,55 +140,7 @@ export default function ProjectDetail({projectIndex, setHome}) {
                 url: piassaFloorplans[7]
               },
             ]
-          }, {
-            type: "Elevations",
-            items: [
-              {
-                id: 13,
-                title: "North East Elevation",
-                url: piassaElevations[0]
-              },
-              {
-                id: 14,
-                title: "Noth West Elevation",
-                url: piassaElevations[1]
-              },
-              {
-                id: 15,
-                title: "South East Elevation",
-                url: piassaElevations[2]
-              },
-              {
-                id: 16,  
-                title: "South West Elevation",
-                url: piassaElevations[3]
-              },
-            ],
-          }, {
-            type: "Sections",
-            items: [
-              {
-                id: 17,
-                title: "Section A-A",
-                url: piassaSections[0]
-              }
-            ]
-          }, 
-          {
-            type: "Other Architectural Drawings",
-            items: [
-              {
-                id: 18,  
-                title: "Light and Switch",
-                url: piassaOthers[0]
-              },
-              {
-                id: 19,  
-                title: "Window Door Schedule",
-                url: piassaOthers[1]
-              },
-            ]
-          },
+          }
         ]
       },
       {
@@ -232,6 +168,21 @@ export default function ProjectDetail({projectIndex, setHome}) {
             url: hannaRenders[2]
           }
         ], 
+        contents: [
+          {
+            text: "A modern exterior that combines clean box-shaped forms with elegantly curved walls, creating a dynamic and visually engaging façade. The thoughtful integration of natural stone adds texture and warmth, balancing contemporary geometry with a sense of timelessness.",
+            img: hannaRenders[0]
+          }, {
+            text: "The design emphasizes layered volumes and up-level arrangements, which enhance the architectural depth and create interesting shadow patterns throughout the day. This combination of curves, boxes, and stone detailing results in a sophisticated, modern home that feels both striking and harmonious with its surroundings.",
+            img: hannaRenders[1]
+          }, {
+            text: "designed with a strong emphasis on structural integrity, ensuring that every architectural element is both functional and resilient. Careful planning of load-bearing elements, cantilevered volumes, and up-level structures allows the design to achieve its modern aesthetic while maintaining safety and stability. By integrating structural considerations into the overall architectural concept, the design efficiently supports curved walls, box-shaped volumes, and multi-level arrangements. This approach not only enhances durability but also allows for bold forms and dynamic spaces, creating a residence that is visually striking, safe, and long-lasting.",
+            img: hannaRenders[2]
+          }, {
+            text: "Clean, white box forms that define the upper volumes, creating a crisp and modern aesthetic. These elevated boxes contrast beautifully with the natural stone used on the ground floor, adding texture, warmth, and a sense of solidity to the base of the building. This material combination emphasizes the building’s hierarchy, with the stone grounding the structure while the white boxes appear light and floating above. The interplay of color, texture, and geometric form results in a balanced, visually striking residence that harmonizes modern design with natural materials.",
+            img: hannaRenders[3]
+          }
+        ],
         visuals: [
           {
             type: "Site Plan",
@@ -271,49 +222,7 @@ export default function ProjectDetail({projectIndex, setHome}) {
                 url: hannaFloorplans[4]
               },
             ]
-          }, {
-            type: "Elevations",
-            items: [
-              {
-                id: 10,
-                title: "Front Elevation",
-                url: hannaElevations[0]
-              },
-              {
-                id: 11,
-                title: "Left Side Elevation",
-                url: hannaElevations[1]
-              },
-              {
-                id: 12,
-                title: "Rare Elevation",
-                url: hannaElevations[2]
-              },
-              {
-                id: 13,  
-                title: "Right Side Elevation",
-                url: hannaElevations[3]
-              },
-            ],
-          }, {
-            type: "Sections",
-            items: [
-              {
-                id: 14,
-                title: "Section A-A",
-                url: hannaSections[0]
-              },
-              {
-                id: 15,
-                title: "Section B-B",
-                url: hannaSections[1]
-              },{
-                id: 16,
-                title: "Section C-C",
-                url: hannaSections[2]
-              }
-            ]
-          },
+          }
         ]
       }, 
       {
@@ -340,7 +249,22 @@ export default function ProjectDetail({projectIndex, setHome}) {
             title: "Image 3",
             url: guna_Michael_Renders[2]
           }
-        ], 
+        ],  
+        contents: [
+          {
+            text: "designed the church by thoughtfully adapting elements of ancient ecclesiastical architecture, blending historic interior and exterior motifs with modern functionality. Inspired by traditional forms, sacred geometry, and timeless craftsmanship, the design creates a serene spiritual atmosphere while meeting contemporary needs. The result is a harmonious space that honors heritage and elevates the worship experience.",
+            img: guna_Michael_Renders[0]
+          }, {
+            text: "merging these ancient influences with modern design principles, the church achieves a balance of heritage and contemporary function. The result is a harmonious space that preserves the essence of traditional church architecture while offering a renewed, immersive, and spiritually uplifting environment.",
+            img: guna_Michael_Renders[1]
+          }, {
+            text: "Enhanced the church by introducing a carefully curated material palette that respects the essence of the original structure. Natural material were selected to preserve the building’s timeless character, while subtle metal accents provided a refined contrast. These choices enrich the overall atmosphere and strengthen the connection between historic craftsmanship and modern aesthetics.",
+            img: guna_Michael_Renders[2]
+          }, {
+            text: "improving visual harmony, the updated materials were chosen for their durability and long-term performance. The refined finishes create a cohesive environment that supports both daily use and special spiritual gatherings. This material-driven approach results in a church that feels renewed, resilient, and aligned with contemporary expectations without losing its traditional identity.",
+            img: guna_Michael_Renders[3]
+          }
+        ],
         visuals: [
           {
             type: "Site Plan",
@@ -369,29 +293,6 @@ export default function ProjectDetail({projectIndex, setHome}) {
                 title: "Roof Plan 2",
                 url: guna_Michael_Floorplans[2]
               },
-            ]
-          }, {
-            type: "Elevations",
-            items: [
-              {
-                id: 8,
-                title: "North Elevation",
-                url: guna_Michael_Elevations[0]
-              },
-              {
-                id: 9,
-                title: "Noth Elevation",
-                url: guna_Michael_Elevations[1]
-              },
-            ],
-          }, {
-            type: "Sections",
-            items: [
-              {
-                id: 10,
-                title: "Section A-A",
-                url: guna_Michael_Sections[0]
-              }
             ]
           }
         ]
@@ -443,7 +344,22 @@ export default function ProjectDetail({projectIndex, setHome}) {
             title: "Image 2",
             url: eskinderRenders[7]
           },
-        ], 
+        ],  
+        contents: [
+          {
+            text: "A double-height bedroom designed to create a sense of grandeur and openness, giving the client an elevated spatial experience. This design enhances natural light penetration and improves ventilation, making the space feel more expansive and luxurious. In addition to the aesthetic impact, the double-height layout offers architectural benefits such as flexibility for creative interior elements, the possibility for mezzanine levels, and a stronger visual connection between different parts of the home. This thoughtful approach blends elegance with functional design, enriching the overall living experience.",
+            img: eskinderRenders[0]
+          }, {
+            text: "a double-height living room, designed to create a dramatic sense of space and openness. This vertical expansion enhances natural light, improves ventilation, and gives the area a grand, airy atmosphere that elevates the overall living experience. Beyond its visual impact, the double-height design offers architectural benefits such as the opportunity for striking interior features, enhanced spatial connectivity, and a flexible layout that accommodates both social gatherings and daily family life. This approach blends aesthetic grandeur with functional living, making the space both impressive and practical.",
+            img: eskinderRenders[1]
+          }, {
+            text: "The townhouse is designed to maximize space efficiency while providing a comfortable and modern living environment. Thoughtful planning ensures each area is functional, with clear zoning for private and communal spaces, creating a balanced and practical home for urban living. Attention to natural light, ventilation, and material selection enhances both comfort and aesthetic appeal. The design combines contemporary architectural elements with a warm, inviting atmosphere, resulting in a townhouse that is stylish, functional, and perfectly suited to the lifestyle of its residents.",
+            img: eskinderRenders[2]
+          }, {
+            text: "The design integrates nature directly into the interior, creating dedicated plant spaces that bring greenery and life into the home. These areas not only enhance visual appeal but also promote a calming and refreshing atmosphere, fostering a strong connection between the occupants and the natural environment. By carefully selecting plant types and strategically placing them throughout the interior, the design improves air quality, supports wellness, and adds layers of texture and color. This approach blends architecture with nature, transforming everyday living spaces into vibrant, sustainable, and serene environments.",
+            img: eskinderRenders[3]
+          }
+        ],
         visuals: [
           {
             type: "Floor Plans",
@@ -479,70 +395,7 @@ export default function ProjectDetail({projectIndex, setHome}) {
                 url: eskinderFloorplans[5]
               }
             ]
-          }, {
-            type: "Elevations",
-            items: [
-              {
-                id: 15,
-                title: "Front Elevation",
-                url: eskinderElevations[0]
-              },
-              {
-                id: 16,
-                title: "Rare Elevation",
-                url: eskinderElevations[1]
-              },
-              {
-                id: 17,
-                title: "Side Elevation",
-                url: eskinderElevations[2]
-              }
-            ],
-          }, {
-            type: "Sections",
-            items: [
-              {
-                id: 18,
-                title: "Section A-A",
-                url: eskinderSections[0]
-              }, {
-                id: 19,
-                title: "Section B-B",
-                url: eskinderSections[1]
-              }
-            ]
-          }, {
-            type: "Detail Drawings",
-            items: [
-              {
-                id: 20,
-                title: "Bath Room Detail",
-                url: eskinderDetails[0]
-              }, {
-                id: 21,
-                title: "Living and Dining Room Detail",
-                url: eskinderDetails[1]
-              } , {
-                id: 22,
-                title: "Master bedroom detail",
-                url: eskinderDetails[2]
-              }
-            ]
-          }, {
-            type: "Other Architectural Drawings",
-            items: [
-              {
-                id: 23,  
-                title: "Wall ID",
-                url: eskinderOthers[0]
-              },
-              {
-                id: 24,  
-                title: "Window Door Schedule",
-                url: eskinderOthers[1]
-              },
-            ]
-          },
+          }
         ]
     },
     {
@@ -569,7 +422,22 @@ export default function ProjectDetail({projectIndex, setHome}) {
             title: "Image 3",
             url: fikirteRenders[2]
           }
-        ], 
+        ],  
+        contents: [
+          {
+            text: "rooms with open balconies, designed to extend living spaces outdoors and enhance the connection with the surrounding environment. These balconies provide abundant natural light and fresh air, creating a relaxing and inviting atmosphere for residents. By integrating open balconies into the design, the residence not only adds visual interest to the façade but also improves functionality and comfort. The outdoor extensions serve as versatile spaces for leisure, socializing, or quiet reflection, making the home feel more spacious and connected to nature.",
+            img: fikirteRenders[0]
+          }, {
+            text: "overlapping and interweaving volumes create a dynamic and visually engaging façade. This approach adds depth, texture, and a sense of movement, making the building stand out while maintaining a modern, cohesive look.",
+            img: fikirteRenders[1]
+          }, {
+            text: "serve functional purposes, allowing for shaded areas, natural ventilation, and strategic spatial organization. By combining aesthetic appeal with practical benefits, the design results in a residence that is both striking and highly livable.",
+            img: fikirteRenders[2]
+          }, {
+            text: "a contemporary color palette of crisp white and deep dark grey, creating a striking contrast that highlights the architectural volumes. White surfaces emphasize openness and light, while dark grey elements provide depth and visual grounding, resulting in a balanced and modern façade. This color combination enhances the interlocking and layered forms of the building, accentuating textures and shadows while maintaining a clean, sophisticated appearance. The thoughtful use of white and dark grey ensures the residence feels both elegant and dynamic, blending modern aesthetics with timeless appeal.",
+            img: fikirteRenders[3]
+          }
+        ],
         visuals: [
           {
             type: "Floor Plans",
@@ -598,29 +466,6 @@ export default function ProjectDetail({projectIndex, setHome}) {
                 id: 8,  
                 title: "Roof Plan",
                 url: fikirteFloorplans[4]
-              }
-            ]
-          }, {
-            type: "Elevations",
-            items: [
-              {
-                id: 9,
-                title: "Front Elevation",
-                url: fikirteElevations[0]
-              },
-              {
-                id: 10,
-                title: "Rare Elevation",
-                url: fikirteElevations[1]
-              }
-            ],
-          }, {
-            type: "Sections",
-            items: [
-              {
-                id: 11,
-                title: "Section A-A",
-                url: fikirteSections[0]
               }
             ]
           }
@@ -658,6 +503,21 @@ export default function ProjectDetail({projectIndex, setHome}) {
             title: "Image 5",
             url: interiorRenders[4]
           }
+        ], 
+        contents: [
+          {
+            text: "a light color palette, creating a bright, airy, and welcoming atmosphere. Soft neutral tones enhance the sense of spaciousness, while carefully selected materials add subtle texture and warmth to the space.",
+            img: interiorRenders[0]
+          }, {
+            text: "The use of light colors maximizes natural illumination and reflects a clean, modern aesthetic. This approach not only makes the interiors feel more open and serene but also provides a versatile backdrop for furniture, décor, and personal expression, resulting in a comfortable and elegant living environment.",
+            img: interiorRenders[1]
+          }, {
+            text: "The interior design incorporates grey-colored furniture, chosen for its versatility, elegance, and timeless appeal. Grey tones provide a neutral foundation that complements the overall color palette while adding depth and sophistication to the space.",
+            img: interiorRenders[2]
+          }, {
+            text: "enhances the modern aesthetic of the interiors, allowing textures, materials, and subtle accents to stand out without overwhelming the design. Grey furniture creates a cohesive and balanced environment, offering both comfort and style for everyday living.",
+            img: interiorRenders[3]
+          }
         ],
         visuals: []
     }
@@ -666,8 +526,6 @@ export default function ProjectDetail({projectIndex, setHome}) {
     const location = useLocation();
     
     const project = projectsList[projectIndex]
-
-    console.log(project)
 
     const [currentPhoto, setCurrentPhoto] = useState(0);
 
@@ -713,17 +571,17 @@ export default function ProjectDetail({projectIndex, setHome}) {
   // You can implement similar prev/next for floor, elevation, section
 
   return (
-    <div id="project-detail" className="min-h-screen bg-linear-to-br from-background via-background to-muted/30 p-6 md:p-12">      
+    <div id="project-detail" className="min-h-screen bg-linear-to-br from-background via-background to-muted/30">      
       {/* Header Section */}
-      <div className="mb-13">
-        <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">
+      <div className="mb-1 m-6 md:my-12 md:mb-1">
+        <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-1">
           Project Showcase
         </h1>
         <div className="h-1 w-20 bg-linear-to-r from-primary to-accent rounded-full" />
       </div>
 
       {/* Back Button */}
-      <button className="z-100 mb-9 sticky top-9 inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:scale-105 font-medium text-sm"
+      <button className=" m-6 md:m-12 z-100 mb-9 sticky top-9 inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:scale-105 font-medium text-sm"
         onClick={() => {
           setHome(true)
           window.scrollTo(0, 0);
@@ -733,97 +591,33 @@ export default function ProjectDetail({projectIndex, setHome}) {
         <ChevronLeft size={18} />
         Back to home
       </button>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Left Column - Content */}
-        <div className="space-y-8">
+      <div className="w-full p-5">
 
-
-            {/* Content Card */}
-            <div className="bg-card rounded-2xl p-8 shadow-lg border border-border/50 backdrop-blur-sm hover:shadow-2xl transition-all duration-500 hover:border-primary/30">
-              <h2 className="text-3xl font-bold text-foreground mb-4 text-balance">
-                {project.title}
-              </h2>
-
-              {/* Meta Information */}
-              <div className="space-y-3 mb-8 pb-8 border-b border-border/50">
-                {/* <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-primary" />
-                  <span className="text-muted-foreground">Subtitle Information</span>
-                </div> */}
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-accent" />
-                  <div className="text-muted-foreground inline-block">Year : {project.year}</div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-primary" />
-                  <div className="text-muted-foreground">Location : {project.location}</div>
-                </div>
+        {/* 1st (odd) */}
+        {project.contents.map((item, index) => {
+          return <>
+          {item.text ? 
+            <div className={`${index % 2 === 1? "bg-muted/30": ""} w-full flex flex-col md:flex-row items-center justify-between gap-6 md:h-[500px] max-w-7xl m-auto`}>
+              <div className={`${index % 2 === 1? "md:order-2": ""} w-full md:w-[50%] text-lg p-5 my-5 flex flex-col items-center justify-center text-center`}>{item.text}
+                {item.author && <div className="my-4 w-full flex justify-end pr-5 italic">{item.author}</div>}
               </div>
-
-              {/* Description */}
-              <p className="text-foreground/80 leading-relaxed mb-6 text-pretty">
-                {project.description[0]}
-              </p>
-              <p className="text-foreground/80 leading-relaxed text-pretty">
-                {project.description[1]}
-              </p>
+              <div className="w-full md:w-[50%] h-fit md:h-full flex items-center justify-center">
+                <img src={item.img} className="h-full object-cover" alt="" />
+              </div>
+            </div>:
+            <div className={`${index % 2 === 1? "bg-muted/30": ""} w-fit mt-5 flex flex-col md:flex-row items-center justify-between gap-6 md:h-[500px] max-w-7xl m-auto`}>
+              <div className="w-full h-full flex items-center justify-center">
+                <img src={item.img} className="h-full object-cover" alt="" />
+              </div> 
             </div>
-        </div>
-
-          {/* Right Column - Image Gallery */}
-        <div className="space-y-8">
-            {/* Image Carousel Cards */}
-
-
-            {/* {project.renders.map((item , index) => ( */}
-              <div
-                // key={index}
-                className="relative w-fit m-auto group rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
-              >
-                {/* Image Container */}
-                <div className="relative md:w-fit md:h-148 m-auto bg-linear-to-br from-primary/20 to-accent/20 overflow-hidden">
-                  <img
-                    src={project.renders[currentPhoto].url}
-                    alt={project.renders[currentPhoto].title}
-                    className="w-full h-auto md:h-full md:w-auto object-cover m-auto group-hover:scale-105 transition-transform duration-500"
-                  />
-
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                  {/* Navigation Buttons */}
-                  <button
-                    onClick={() =>
-                      setCurrentPhoto(prev => 
-                        prev > 0 ? prev - 1: project.renders.length-1
-                      )
-                    }
-                    className="absolute left-4 top-1/2 -translate-y-1/2 lg:bg-white/90 bg-white hover:bg-white text-secondary rounded-full p-2 opacity-100 lg:opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110">
-                    <ChevronLeft size={20} />
-                  </button>
-                  <button
-                    onClick={() =>
-                      setCurrentPhoto(prev => 
-                        prev < project.renders.length - 1 ? prev + 1 : 0
-                      )
-                    }
-                    className="absolute right-4 top-1/2 -translate-y-1/2 lg:bg-white/90 bg-white hover:bg-white text-secondary rounded-full p-2 opacity-100 lg:opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110">
-                      <ChevronRight size={20} />
-                  </button>
-                </div>
-
-                {/* Image Info */}
-                {/* <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/60 to-transparent p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <p className="text-white font-semibold">{project.renders[currentPhoto].title}</p>
-                  <p className="text-white/80 text-sm">Beautiful project photography</p>
-                </div> */}
-              </div>
-
-        </div>
+          }
+          </>
+        }
+        )}
       </div>
       {
       project.video && 
-      <div className="col-span-2 w:[90vw] lg:w-fit my-9 mx-auto flex justify-center items-center">
+      <div className="w:[90vw] lg:w-fit my-9 mx-auto flex justify-center items-center">
         <iframe
           className="w-[560px] h-[315px] lg:w-[1120px] lg:h-[630px]"
           src="https://www.youtube.com/embed/3BLfain9X_w?si=cag90jbKqpg_Gl1C"
@@ -840,109 +634,98 @@ export default function ProjectDetail({projectIndex, setHome}) {
 
       <div className="py-16 sm:py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {project.visuals?.length > 0 && <div className="flex flex-col gap-3">
-            <h2 className="text-3xl font-bold text-foreground mb-11">Architectural Drawings</h2>
-            {/* <button className="">lsdfk</button> */}
-            {/* <a
-              href=""
-              download=""
-              className="w-fit mb-12 inline-flex items-center gap-2 px-4 pb-2 underline text-foreground rounded-lg hover:opacity-55 font-medium text-sm"
-            >
-              Click here to download Architectural Drawings
-            </a> */}
-          </div>
-          }
-          
-          <div className="space-y-16">
-            { project.visuals.map((category) => (
-              <div key={category.type} className="space-y-6">
-                <h3 className="text-2xl font-semibold text-foreground">{category.type}</h3>
+          {project.visuals?.length > 0 && 
+            <div className="space-y-16">
+              { project.visuals.map((category) => (
+                <div key={category.type} className="space-y-6">
+                  <h3 className="text-2xl font-semibold text-foreground">{category.type}</h3>
 
-                {/* Slider Container */}
-                <div className="relative">
-                  <div
-                    className="bg-muted rounded-lg overflow-hidden aspect-video">
-                      {category.items?.length > 0 && (
-                        <img
-                          onClick={
-                            (e) => {
-                              setModalSrc(category.items[currentIndex[category.type]].url)
-                              setModalAlt(category.items[currentIndex[category.type]].title || "image")
-                              setOpenModal(true)
+                  {/* Slider Container */}
+                  <div className="relative">
+                    <div
+                      className="bg-muted rounded-lg overflow-hidden aspect-video">
+                        {category.items?.length > 0 && (
+                          <img
+                            onClick={
+                              (e) => {
+                                setModalSrc(category.items[currentIndex[category.type]].url)
+                                setModalAlt(category.items[currentIndex[category.type]].title || "image")
+                                setOpenModal(true)
+                              }
                             }
-                          }
-                          src={category.items[currentIndex[category.type]].url}
-                          alt={category.items[currentIndex[category.type]].title || "image"}
-                          className="cursor-pointer"
-                          />
-                        )}
+                            src={category.items[currentIndex[category.type]].url}
+                            alt={category.items[currentIndex[category.type]].title || "image"}
+                            className="cursor-pointer h-full"
+                            />
+                          )}
 
-                      {/* modal */}
-                      {openModal &&       
-                        <div className="z-11000 fixed inset-0 min-h-screen flex items-center justify-center bg-gray-100 border border-red-700">
-                          <ZoomModal isOpen={openModal} setIsOpen={setOpenModal} imgSrc={modalSrc} imgAlt={category.items[currentIndex[category.type]].title || "Image"} />
-                        </div>
-                      }
+                        {/* modal */}
+                        {openModal &&       
+                          <div className="z-11000 fixed inset-0 min-h-screen flex items-center justify-center bg-gray-100">
+                            <ZoomModal isOpen={openModal} setIsOpen={setOpenModal} imgSrc={modalSrc} imgAlt={category.items[currentIndex[category.type]].title || "Image"} />
+                          </div>
+                        }
+                    </div>
+
+
+                    {/* Navigation Buttons */}
+                    {category.items.length > 1 && (
+                      <>
+                        <button
+                          onClick={() => handlePrev(category.type)}
+                          className="absolute left-4 top-1/2 -translate-y-1/2 bg-primary text-background rounded-full p-2 hover:bg-accent transition-colors z-10"
+                          aria-label="Previous drawing"
+                        >
+                          <ChevronLeft size={24} />
+                        </button>
+                        <button
+                          onClick={() => handleNext(category.type)}
+                          className="absolute right-4 top-1/2 -translate-y-1/2 bg-primary text-background rounded-full p-2 hover:bg-accent transition-colors z-10"
+                          aria-label="Next drawing"
+                        >
+                          <ChevronRight size={24} />
+                        </button>
+                      </>
+                    )}
+
+                    {/* Slide Counter */}
+                    <div className="absolute bottom-4 right-4 bg-background/80 backdrop-blur-sm rounded px-3 py-1 text-sm font-medium text-foreground">
+                      {(currentIndex[category.type] || 0) + 1} / {category.items.length}
+                    </div>
                   </div>
 
+                  {/* Current Item Title */}
+                  <p className="text-lg text-muted-foreground">{category.items[currentIndex  || 0]?.title}</p>
 
-                  {/* Navigation Buttons */}
-                  {category.items.length > 1 && (
-                    <>
+                  {/* Thumbnail Navigation */}
+                  <div className="flex gap-3 overflow-x-auto pb-2">
+                    {category.items.map((item, idx) => (
                       <button
-                        onClick={() => handlePrev(category.type)}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-primary text-background rounded-full p-2 hover:bg-accent transition-colors z-10"
-                        aria-label="Previous drawing"
+                        key={item.id}
+                        onClick={() =>
+                          setCurrentIndex((prev) => ({
+                            ...prev,
+                            [category.type]: idx,
+                          }))
+                        }
+                        className={`shrink-0 w-24 h-24 rounded overflow-hidden border-2 transition-all ${
+                          (currentIndex[category.type] || 0) === idx
+                            ? "border-primary"
+                            : "border-muted hover:border-muted-foreground"
+                        }`}
                       >
-                        <ChevronLeft size={24} />
+                        <img
+                          src={item.url}
+                          alt={item.title}
+                          className="w-full h-full object-cover"
+                        />
                       </button>
-                      <button
-                        onClick={() => handleNext(category.type)}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-primary text-background rounded-full p-2 hover:bg-accent transition-colors z-10"
-                        aria-label="Next drawing"
-                      >
-                        <ChevronRight size={24} />
-                      </button>
-                    </>
-                  )}
-
-                  {/* Slide Counter */}
-                  <div className="absolute bottom-4 right-4 bg-background/80 backdrop-blur-sm rounded px-3 py-1 text-sm font-medium text-foreground">
-                    {(currentIndex[category.type] || 0) + 1} / {category.items.length}
+                    ))}
                   </div>
                 </div>
-
-                {/* Current Item Title */}
-                <p className="text-lg text-muted-foreground">{category.items[currentIndex  || 0]?.title}</p>
-
-                {/* Thumbnail Navigation */}
-                <div className="flex gap-3 overflow-x-auto pb-2">
-                  {category.items.map((item, idx) => (
-                    <button
-                      key={item.id}
-                      onClick={() =>
-                        setCurrentIndex((prev) => ({
-                          ...prev,
-                          [category.type]: idx,
-                        }))
-                      }
-                      className={`shrink-0 w-24 h-24 rounded overflow-hidden border-2 transition-all ${
-                        (currentIndex[category.type] || 0) === idx
-                          ? "border-primary"
-                          : "border-muted hover:border-muted-foreground"
-                      }`}
-                    >
-                      <img
-                        src={item.url}
-                        alt={item.title}
-                        className="w-full h-full object-cover"
-                      />
-                    </button>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          }
         </div>
       </div>
     </div>
