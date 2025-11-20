@@ -66,13 +66,13 @@ export default function ProjectDetail({projectIndex, setHome}) {
             author: "Afewerk K",
             img: piassaRenders[0]
           },  {
-            text: "designed using a cold-formed steel structure, allowing for precise, lightweight, and highly durable construction. This method supports flexible layouts and clean architectural lines, making it ideal for modern design while ensuring long-term structural stability. The use of cold-formed construction enables faster build times and efficient material usage, while also providing the freedom to create open, airy spaces and multi-level volumes. This approach combines technical innovation with aesthetic clarity, resulting in a residence that is both contemporary and resilient.",
+            text: "designed using a cold-formed steel structure, allowing for precise, lightweight, and highly durable construction. This method supports flexible layouts and clean architectural lines, making it ideal for modern design while ensuring long-term structural stability.",
             img: piassaRenders[1]
           }, {
-            text: "open and wide windows that maximize natural light and create seamless visual connections with the outdoors. These expansive openings enhance the sense of space, making interiors feel bright, airy, and welcoming. Strategically placed, the large windows also promote natural ventilation and frame carefully considered views, strengthening the relationship between the home and its surroundings. This approach combines functionality with modern aesthetics, resulting in a living environment that is both comfortable and visually engaging.",
+            text: "open and wide windows that maximize natural light and create seamless visual connections with the outdoors. These expansive openings enhance the sense of space, making interiors feel bright, airy, and welcoming.",
             img: piassaRenders[2]
           }, {
-            text: "designed with a focus on spacious, well-organized interiors that maximize comfort and functionality. Thoughtful layout planning ensures smooth circulation between rooms and creates clearly defined areas for living, dining, and private activities. Generous ceiling heights, open-plan arrangements, and careful zoning enhance the sense of openness while allowing flexibility for different uses. The result is an interior that feels expansive, inviting, and perfectly tailored to the lifestyle of its residents.",
+            text: "designed with a focus on spacious, well-organized interiors that maximize comfort and functionality. Thoughtful layout planning ensures smooth circulation between rooms and creates clearly defined areas for living, dining, and private activities.",
             img: piassaRenders[3]
           }, {
             text: "",
@@ -176,10 +176,10 @@ export default function ProjectDetail({projectIndex, setHome}) {
             text: "The design emphasizes layered volumes and up-level arrangements, which enhance the architectural depth and create interesting shadow patterns throughout the day. This combination of curves, boxes, and stone detailing results in a sophisticated, modern home that feels both striking and harmonious with its surroundings.",
             img: hannaRenders[1]
           }, {
-            text: "designed with a strong emphasis on structural integrity, ensuring that every architectural element is both functional and resilient. Careful planning of load-bearing elements, cantilevered volumes, and up-level structures allows the design to achieve its modern aesthetic while maintaining safety and stability. By integrating structural considerations into the overall architectural concept, the design efficiently supports curved walls, box-shaped volumes, and multi-level arrangements. This approach not only enhances durability but also allows for bold forms and dynamic spaces, creating a residence that is visually striking, safe, and long-lasting.",
+            text: "designed with a strong emphasis on structural integrity, ensuring that every architectural element is both functional and resilient. Careful planning of load-bearing elements, cantilevered volumes, and up-level structures allows the design to achieve its modern aesthetic while maintaining safety and stability.",
             img: hannaRenders[2]
           }, {
-            text: "Clean, white box forms that define the upper volumes, creating a crisp and modern aesthetic. These elevated boxes contrast beautifully with the natural stone used on the ground floor, adding texture, warmth, and a sense of solidity to the base of the building. This material combination emphasizes the building’s hierarchy, with the stone grounding the structure while the white boxes appear light and floating above. The interplay of color, texture, and geometric form results in a balanced, visually striking residence that harmonizes modern design with natural materials.",
+            text: "Clean, white box forms that define the upper volumes, creating a crisp and modern aesthetic. The material combination emphasizes the building’s hierarchy, with while the white boxes appear light and floating above. The interplay of color, texture, and geometric form results in a balanced, visually striking residence that harmonizes modern design with natural materials.",
             img: hannaRenders[3]
           }
         ],
@@ -252,16 +252,16 @@ export default function ProjectDetail({projectIndex, setHome}) {
         ],  
         contents: [
           {
-            text: "designed the church by thoughtfully adapting elements of ancient ecclesiastical architecture, blending historic interior and exterior motifs with modern functionality. Inspired by traditional forms, sacred geometry, and timeless craftsmanship, the design creates a serene spiritual atmosphere while meeting contemporary needs. The result is a harmonious space that honors heritage and elevates the worship experience.",
+            text: "The church is designed by thoughtfully adapting elements of ancient ecclesiastical architecture, blending historic interior and exterior motifs with modern functionality. The result is a harmonious space that honors heritage and elevates the worship experience.",
             img: guna_Michael_Renders[0]
           }, {
             text: "merging these ancient influences with modern design principles, the church achieves a balance of heritage and contemporary function. The result is a harmonious space that preserves the essence of traditional church architecture while offering a renewed, immersive, and spiritually uplifting environment.",
             img: guna_Michael_Renders[1]
           }, {
-            text: "Enhanced the church by introducing a carefully curated material palette that respects the essence of the original structure. Natural material were selected to preserve the building’s timeless character, while subtle metal accents provided a refined contrast. These choices enrich the overall atmosphere and strengthen the connection between historic craftsmanship and modern aesthetics.",
+            text: "Enhanced the church by introducing a carefully curated material palette that respects the essence of the original structure. Natural material were selected to preserve the building’s timeless character, while subtle metal accents provided a refined contrast.",
             img: guna_Michael_Renders[2]
           }, {
-            text: "improving visual harmony, the updated materials were chosen for their durability and long-term performance. The refined finishes create a cohesive environment that supports both daily use and special spiritual gatherings. This material-driven approach results in a church that feels renewed, resilient, and aligned with contemporary expectations without losing its traditional identity.",
+            text: "improving visual harmony, the updated materials were chosen for their durability and long-term performance. The refined finishes create a cohesive environment that supports both daily use and special spiritual gatherings.",
             img: guna_Michael_Renders[3]
           }
         ],
@@ -347,16 +347,16 @@ export default function ProjectDetail({projectIndex, setHome}) {
         ],  
         contents: [
           {
-            text: "A double-height bedroom designed to create a sense of grandeur and openness, giving the client an elevated spatial experience. This design enhances natural light penetration and improves ventilation, making the space feel more expansive and luxurious. In addition to the aesthetic impact, the double-height layout offers architectural benefits such as flexibility for creative interior elements, the possibility for mezzanine levels, and a stronger visual connection between different parts of the home. This thoughtful approach blends elegance with functional design, enriching the overall living experience.",
+            text: "A double-height bedroom designed to create a sense of grandeur and openness, giving the client an elevated spatial experience. This design enhances natural light penetration and improves ventilation, making the space feel more expansive and luxurious.",
             img: eskinderRenders[0]
           }, {
-            text: "a double-height living room, designed to create a dramatic sense of space and openness. This vertical expansion enhances natural light, improves ventilation, and gives the area a grand, airy atmosphere that elevates the overall living experience. Beyond its visual impact, the double-height design offers architectural benefits such as the opportunity for striking interior features, enhanced spatial connectivity, and a flexible layout that accommodates both social gatherings and daily family life. This approach blends aesthetic grandeur with functional living, making the space both impressive and practical.",
+            text: "a double-height living room, designed to create a dramatic sense of space and openness. This vertical expansion enhances natural light, improves ventilation, and gives the area a grand, airy atmosphere that elevates the overall living experience.",
             img: eskinderRenders[1]
           }, {
-            text: "The townhouse is designed to maximize space efficiency while providing a comfortable and modern living environment. Thoughtful planning ensures each area is functional, with clear zoning for private and communal spaces, creating a balanced and practical home for urban living. Attention to natural light, ventilation, and material selection enhances both comfort and aesthetic appeal. The design combines contemporary architectural elements with a warm, inviting atmosphere, resulting in a townhouse that is stylish, functional, and perfectly suited to the lifestyle of its residents.",
+            text: "The townhouse is designed to maximize space efficiency while providing a comfortable and modern living environment. Thoughtful planning ensures each area is functional, with clear zoning for private and communal spaces, creating a balanced and practical home for urban living.",
             img: eskinderRenders[2]
           }, {
-            text: "The design integrates nature directly into the interior, creating dedicated plant spaces that bring greenery and life into the home. These areas not only enhance visual appeal but also promote a calming and refreshing atmosphere, fostering a strong connection between the occupants and the natural environment. By carefully selecting plant types and strategically placing them throughout the interior, the design improves air quality, supports wellness, and adds layers of texture and color. This approach blends architecture with nature, transforming everyday living spaces into vibrant, sustainable, and serene environments.",
+            text: "The design integrates nature directly into the interior, creating dedicated plant spaces that bring greenery and life into the home. These areas not only enhance visual appeal but also promote a calming and refreshing atmosphere, fostering a strong connection between the occupants and the natural environment.",
             img: eskinderRenders[3]
           }
         ],
@@ -425,7 +425,7 @@ export default function ProjectDetail({projectIndex, setHome}) {
         ],  
         contents: [
           {
-            text: "rooms with open balconies, designed to extend living spaces outdoors and enhance the connection with the surrounding environment. These balconies provide abundant natural light and fresh air, creating a relaxing and inviting atmosphere for residents. By integrating open balconies into the design, the residence not only adds visual interest to the façade but also improves functionality and comfort. The outdoor extensions serve as versatile spaces for leisure, socializing, or quiet reflection, making the home feel more spacious and connected to nature.",
+            text: "rooms with open balconies, designed to extend living spaces outdoors and enhance the connection with the surrounding environment. These balconies provide abundant natural light and fresh air, creating a relaxing and inviting atmosphere for residents. ",
             img: fikirteRenders[0]
           }, {
             text: "overlapping and interweaving volumes create a dynamic and visually engaging façade. This approach adds depth, texture, and a sense of movement, making the building stand out while maintaining a modern, cohesive look.",
@@ -434,7 +434,7 @@ export default function ProjectDetail({projectIndex, setHome}) {
             text: "serve functional purposes, allowing for shaded areas, natural ventilation, and strategic spatial organization. By combining aesthetic appeal with practical benefits, the design results in a residence that is both striking and highly livable.",
             img: fikirteRenders[2]
           }, {
-            text: "a contemporary color palette of crisp white and deep dark grey, creating a striking contrast that highlights the architectural volumes. White surfaces emphasize openness and light, while dark grey elements provide depth and visual grounding, resulting in a balanced and modern façade. This color combination enhances the interlocking and layered forms of the building, accentuating textures and shadows while maintaining a clean, sophisticated appearance. The thoughtful use of white and dark grey ensures the residence feels both elegant and dynamic, blending modern aesthetics with timeless appeal.",
+            text: "a contemporary color palette of crisp white and deep dark grey, creating a striking contrast that highlights the architectural volumes. White surfaces emphasize openness and light, while dark grey elements provide depth and visual grounding, resulting in a balanced and modern façade.",
             img: fikirteRenders[3]
           }
         ],
@@ -597,11 +597,11 @@ export default function ProjectDetail({projectIndex, setHome}) {
         {project.contents.map((item, index) => {
           return <>
           {item.text ? 
-            <div className={`${index % 2 === 1? "bg-muted/30": ""} w-full flex flex-col md:flex-row items-center justify-between gap-6 md:h-[500px] max-w-7xl m-auto`}>
-              <div className={`${index % 2 === 1? "md:order-2": ""} w-full md:w-[50%] text-lg p-5 my-5 flex flex-col items-center justify-center text-center`}>{item.text}
+            <div className={`${index % 2 === 1? "bg-muted/30": ""} w-full flex flex-col md:flex-row items-center justify-between gap-1 md:h-[600px] max-w-7xl m-auto`}>
+              <div className={`${index % 2 === 0? "md:order-2": "md:order-1"} order-2 w-[80%] md:w-[50%] text-base md:text-lg text-foreground/60 pl-9 pb-9 pr-2 md:pr-9 mb-18 mt-8 flex flex-col items-end ml-auto justify-end md:items-center md:justify-center text-center`}>{item.text}
                 {item.author && <div className="my-4 w-full flex justify-end pr-5 italic">{item.author}</div>}
               </div>
-              <div className="w-full md:w-[50%] h-fit md:h-full flex items-center justify-center">
+              <div className={`${index % 2 === 0? "md:order-1": "md:order-2"} p-2 md:p-0 order-1 w-full md:w-[50%] h-fit md:h-full flex items-center justify-center`}>
                 <img src={item.img} className="h-full object-cover" alt="" />
               </div>
             </div>:
@@ -630,104 +630,6 @@ export default function ProjectDetail({projectIndex, setHome}) {
       </div>
       }
 
-
-
-      <div className="py-16 sm:py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {project.visuals?.length > 0 && 
-            <div className="space-y-16">
-              { project.visuals.map((category) => (
-                <div key={category.type} className="space-y-6">
-                  <h3 className="text-2xl font-semibold text-foreground">{category.type}</h3>
-
-                  {/* Slider Container */}
-                  <div className="relative">
-                    <div
-                      className="bg-muted rounded-lg overflow-hidden aspect-video">
-                        {category.items?.length > 0 && (
-                          <img
-                            onClick={
-                              (e) => {
-                                setModalSrc(category.items[currentIndex[category.type]].url)
-                                setModalAlt(category.items[currentIndex[category.type]].title || "image")
-                                setOpenModal(true)
-                              }
-                            }
-                            src={category.items[currentIndex[category.type]].url}
-                            alt={category.items[currentIndex[category.type]].title || "image"}
-                            className="cursor-pointer h-full"
-                            />
-                          )}
-
-                        {/* modal */}
-                        {openModal &&       
-                          <div className="z-11000 fixed inset-0 min-h-screen flex items-center justify-center bg-gray-100">
-                            <ZoomModal isOpen={openModal} setIsOpen={setOpenModal} imgSrc={modalSrc} imgAlt={category.items[currentIndex[category.type]].title || "Image"} />
-                          </div>
-                        }
-                    </div>
-
-
-                    {/* Navigation Buttons */}
-                    {category.items.length > 1 && (
-                      <>
-                        <button
-                          onClick={() => handlePrev(category.type)}
-                          className="absolute left-4 top-1/2 -translate-y-1/2 bg-primary text-background rounded-full p-2 hover:bg-accent transition-colors z-10"
-                          aria-label="Previous drawing"
-                        >
-                          <ChevronLeft size={24} />
-                        </button>
-                        <button
-                          onClick={() => handleNext(category.type)}
-                          className="absolute right-4 top-1/2 -translate-y-1/2 bg-primary text-background rounded-full p-2 hover:bg-accent transition-colors z-10"
-                          aria-label="Next drawing"
-                        >
-                          <ChevronRight size={24} />
-                        </button>
-                      </>
-                    )}
-
-                    {/* Slide Counter */}
-                    <div className="absolute bottom-4 right-4 bg-background/80 backdrop-blur-sm rounded px-3 py-1 text-sm font-medium text-foreground">
-                      {(currentIndex[category.type] || 0) + 1} / {category.items.length}
-                    </div>
-                  </div>
-
-                  {/* Current Item Title */}
-                  <p className="text-lg text-muted-foreground">{category.items[currentIndex  || 0]?.title}</p>
-
-                  {/* Thumbnail Navigation */}
-                  <div className="flex gap-3 overflow-x-auto pb-2">
-                    {category.items.map((item, idx) => (
-                      <button
-                        key={item.id}
-                        onClick={() =>
-                          setCurrentIndex((prev) => ({
-                            ...prev,
-                            [category.type]: idx,
-                          }))
-                        }
-                        className={`shrink-0 w-24 h-24 rounded overflow-hidden border-2 transition-all ${
-                          (currentIndex[category.type] || 0) === idx
-                            ? "border-primary"
-                            : "border-muted hover:border-muted-foreground"
-                        }`}
-                      >
-                        <img
-                          src={item.url}
-                          alt={item.title}
-                          className="w-full h-full object-cover"
-                        />
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          }
-        </div>
-      </div>
     </div>
   );
 }
