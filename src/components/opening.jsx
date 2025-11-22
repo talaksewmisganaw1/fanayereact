@@ -46,7 +46,7 @@ export default function Opening({isAnimating, setIsAnimating, loader}) {
         </div>
       </div>
 
-      <div className={`${!loader? ' animate-fade-in ': '' } ${isAnimating ? ' go-top ' : ''} ${ispadding? ' md:ml-4 lg:pl-[8.4vw] h-20 flex items-center text-accent ': ''} name font-[Delius] fixed mt-0 text-accent w-full`}>Fanaye Girma</div>
+      <div className={`${!loader? ' animate-fade-in ': '' } ${isAnimating ? ' go-top ' : ''} ${ispadding? ' md:ml-4 lg:pl-[8.4vw] h-20 flex items-center text-accent ': ''} name font-[Delius] fixed mt-0 text-accent w-full`}>Fanaye -Girma</div>
 
     </div>
   )
