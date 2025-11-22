@@ -7,14 +7,18 @@ import Navigation from './components/Navigation'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import BuildingLoader from './components/BuildingLoader'
+import Opening from './components/opening'
 const ProjectDetail = lazy(() => import("./components/ProjectDetail"));
 
 export default function App() {
   const [loader, setLoader] = useState(true)
   const [home, setHome] = useState(true);
   const [projectIndex, setProjectIndex] = useState();
+  const [isAnimating, setIsAnimating] = useState(false);
+
   return (
-    <div>
+    <div className={`${isAnimating? 'h-auto overflow-scroll': 'h-screen overflow-hidden'}`}>
+      <Opening  isAnimating={isAnimating} setIsAnimating={setIsAnimating} loader={loader} />
       {home && loader && <BuildingLoader setLoader={setLoader} />}
       {home && <>
           <Navigation />

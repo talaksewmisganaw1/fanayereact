@@ -1,4 +1,34 @@
-/* Animations for split sections */
+.splash-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+.splash-section {
+  position: absolute;
+  /* width: 50%; */
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 1.2s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.splash-section.left {
+  left: 0;
+  /* background: linear-gradient(to right, oklch(0.9 0 0) 0%, oklch(0.5 0 0 / 0.4) 100%); */
+}
+
+.splash-section.right {
+  right: 0;
+  /* background: linear-gradient(to right, oklch(0.5 0 0 / 0.4) 0%, oklch(0.9 0 0) 100%); */
+}
+
+/* Split animation */
 .splash-section.left.animate-left {
   transform: translateX(-100%);
 }
@@ -7,9 +37,24 @@
   transform: translateX(100%);
 }
 
-/* Text animations */
+.splash-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  width: 100%;
+}
+
+
+
+/* Text styling */
 .splash-text {
-  animation: fadeInUp 0.8s ease-out forwards;
+  /* font-size: clamp(48px, 12vw, 120px); */
+  font-weight: 900;
+  /* color: #ffffff; */
+  line-height: 1.2;
+  letter-spacing: -2px;
+  margin: 8px 0;
+  /* text-transform: lowercase; */
 }
 
 .splash-text:nth-child(1) {
@@ -24,13 +69,97 @@
   animation-delay: 0.6s;
 }
 
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 50%, #ff006e 100%);
+/* Center text that disappears */
+.splash-center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 0.8s ease-out;
+  pointer-events: none;
+}
+
+.splash-center-text.fade-out {
+  opacity: 0;
+}
+
+.splash-main-text {
+  font-size: clamp(32px, 8vw, 72px);
+  font-weight: 900;
+  background: linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #7c3aed 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-transform: lowercase;
+  letter-spacing: -1px;
+  text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
 }
+
+/* Accent element */
+.accent-element {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.4) 0%, rgba(0, 212, 255, 0.2) 100%);
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: float 6s ease-in-out infinite;
+}
+
+.accent-element::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 0, 110, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: float-reverse 8s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.name {
+  /* animation: go-top 1s forwards; */
+  top: 56.5vh;
+  font-weight: 600;
+  font-size: 2.25rem; /* 36px */
+  line-height: 2.5rem; /* 40px */
+  text-align: center;
+  
+  transition: all 0.4s ease-out;
+}
+
+.go-top {
+    animation: go-top 1s forwards;
+}
+
+@media (min-width: 768px) {
+  .name {
+    /* animation: go-top 1s forwards; */
+    font-weight:600;
+    font-size: 3.5rem; /* 36px */
+    line-height: 3.5rem; /* 40px */
+    margin-top: 1.5vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  .name {
+    /* animation: go-top 1s forwards; */
+    font-size: 3.75rem; /* 60px */
+    line-height: 1;     /* 1 */
+    margin-top: 8.5vh;
+    
+
+  }
+}
+
 
 /* Animations */
 @keyframes fadeInUp {
@@ -44,20 +173,22 @@
   }
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-30px);
-  }
-}
 
-@keyframes float-reverse {
-  0%, 100% {
-    transform: translateY(0px);
+@keyframes go-top {
+  0% {
+    top: 56.5vh;
   }
-  50% {
-    transform: translateY(30px);
+  100% {
+    top: 0vh;
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem; /* 32px */
+    margin-top: 0;
+    left: 1rem;
+    text-align: start;
+    font-weight: 700;
+    color: oklch(0.45 0.12 44);
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
   }
 }

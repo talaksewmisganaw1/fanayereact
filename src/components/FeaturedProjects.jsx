@@ -66,7 +66,7 @@ export default function FeaturedProjects({setHome, setProjectIndex}) {
   const navigate = useNavigate();
 
   return (
-    <section id="projects" className="pt-24 pb-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+    <section id="projects" className="pt-24 pb-20 px-4 sm:px-6 lg:px-8 bg-muted/30 z-20">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">

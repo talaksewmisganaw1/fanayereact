@@ -3,17 +3,15 @@ import { useEffect } from "react";
 export default function BuildingLoader({setLoader}) {
 
   useEffect(() => {
-    // Hide loader after 3.5 seconds (animation duration)
-    const timer = setTimeout(() => {
-      setLoader(false)
-    }, 3500);
-
-    return () => clearTimeout(timer);
+    // hide loader when the page is loaded
+    const onLoad = () => 
+      window.addEventListener("load", onLoad);
+      return setLoader(false)
   }, []);
 
   return (
     <div
-      className="fixed inset-0 bg-gradient-to-b from-blue-50 to-slate-50 dark:from-slate-950 dark:to-slate-900 flex items-center justify-center z-60"
+      className="z-50 fixed inset-0 bg-gradient-to-b from-blue-50 to-slate-50 dark:from-slate-950 dark:to-slate-900 flex items-center justify-center"
       style={{
         animation: "fadeOut 0.5s ease-out 3s forwards",
       }}
