@@ -1,8 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
-export default function Navigation() {
+export default function Navigation({logoname}) {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if(logoname) {
+      const logo_name = document.querySelector(".logo-name");
+      logo_name.classList.remove("hidden");
+    }
+  }, [logoname])
 
   const navLinks = [
     { href: "#projects", label: "Projects" },
@@ -16,9 +23,9 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <div className="shrink-0 border border-amber-900">
-            <a href="/" className="text-2xl font-bold text-primary">
-              {/* Fanaye Girma */}
+          <div className="shrink-0">
+            <a href="/" className="text-2xl font-bold text-primary logo-name hidden">
+              Fanaye Girma
             </a>
           </div>
 

@@ -15,13 +15,15 @@ export default function App() {
   const [home, setHome] = useState(true);
   const [projectIndex, setProjectIndex] = useState();
   const [isAnimating, setIsAnimating] = useState(false);
+  const [logoname, setLogoname] = useState(false);
+  const [cursor, setCursor] = useState(false);
 
   return (
     <div className={`${isAnimating? 'h-auto overflow-scroll': 'h-screen overflow-hidden'}`}>
-      <Opening  isAnimating={isAnimating} setIsAnimating={setIsAnimating} loader={loader} />
+      <Opening  isAnimating={isAnimating} setIsAnimating={setIsAnimating} loader={loader} logoname={logoname} setLogoname={setLogoname} />
       {home && loader && <BuildingLoader setLoader={setLoader} />}
       {home && <>
-          <Navigation />
+          <Navigation logoname={logoname}/>
           <FeaturedProjects setHome={setHome} setProjectIndex={setProjectIndex} />
           <About />
           <Contact />

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './opening.css'
 
-export default function Opening({isAnimating, setIsAnimating, loader}) {
+export default function Opening({isAnimating, setIsAnimating, loader, setLogoname}) {
 
   const [ispadding, setIspadding] = useState(false)
 
@@ -18,7 +18,15 @@ export default function Opening({isAnimating, setIsAnimating, loader}) {
   useEffect(() => {
     if(isAnimating) {
           const timerer = setTimeout(() => {
-            setIspadding(true)
+            setIspadding(true);
+            const opening = document.querySelector(".splash-container");
+            opening.classList.remove("z-40");
+            opening.classList.add("-z-40");
+
+            setLogoname(true);
+
+            const name = document.querySelector(".name");
+            name.classList.add("hidden");
           }, 1100)
 
           return () => clearTimeout(timerer)
@@ -28,7 +36,7 @@ export default function Opening({isAnimating, setIsAnimating, loader}) {
   }, [isAnimating])
 
   return (
-    <div className="splash-container z-40">
+    <div className="splash-container z-40 hidden">
       {/* Left Section */}
       <div className={`splash-section left ${isAnimating ? 'animate-left' : ''} w-[45%] bg-linear-to-r from-background to-muted`}>
         <div className="splash-content h-full relative">

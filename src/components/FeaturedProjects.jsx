@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import piassaImg from "../assets/covers/piassa.webp";
@@ -64,6 +64,8 @@ const projects = [
 
 export default function FeaturedProjects({setHome, setProjectIndex}) {
   const navigate = useNavigate();
+
+  
 
   return (
     <section id="projects" className="pt-24 pb-20 px-4 sm:px-6 lg:px-8 bg-muted/30 z-20">

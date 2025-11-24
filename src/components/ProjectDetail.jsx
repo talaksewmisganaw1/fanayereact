@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate  } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import ZoomModal from "./Zoom";
 
 
 const piassaFloorplansImport = import.meta.glob('/src/assets/piassa/floor plans/*.png', { eager: true });
@@ -31,7 +30,6 @@ const guna_Michael_Renders = Object.values(guna_Michael_RendersImport).map(img =
 
 const eskinderFloorplansImport = import.meta.glob('/src/assets/eskinder/floor plans/*.png', { eager: true });
 const eskinderRendersImport = import.meta.glob('/src/assets/eskinder/renders/*.{jpg,png,jpeg,webp}', { eager: true });
-const eskinderDetailsImport = import.meta.glob('/src/assets/eskinder/details/*.png', { eager: true });
 
 const eskinderFloorplans = Object.values(eskinderFloorplansImport).map(img => img.default);
 const eskinderRenders = Object.values(eskinderRendersImport).map(img => img.default);
@@ -573,7 +571,7 @@ export default function ProjectDetail({projectIndex, setHome}) {
   return (
     <div id="project-detail" className="min-h-screen bg-linear-to-br from-background via-background to-muted/30">      
       {/* Header Section */}
-      <div className="mb-1 m-6 md:my-12 md:mb-1">
+      <div className="mb-1 m-6 md:py-12 md:mb-1">
         <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-1">
           Project Showcase
         </h1>
