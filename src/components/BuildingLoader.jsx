@@ -6,6 +6,7 @@ export default function BuildingLoader({setLoader}) {
     // hide loader when the page is loaded
     const onLoad = () => 
       window.addEventListener("load", onLoad);
+      console.log(document.querySelectorAll(".hidden"))
       return setLoader(false)
   }, []);
 

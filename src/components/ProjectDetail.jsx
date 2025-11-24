@@ -541,6 +541,8 @@ export default function ProjectDetail({projectIndex, setHome}) {
     const [modalSrc, setModalSrc] = useState();
     const [modalAlt, setModalAlt] = useState()
 
+    const [fixed, setFixed] = useState();
+
     useEffect(() => {
       const htmlParent = document.getElementsByTagName("html")[0];
       if (openModal) {
@@ -566,7 +568,18 @@ export default function ProjectDetail({projectIndex, setHome}) {
       }));
     };
 
-  // You can implement similar prev/next for floor, elevation, section
+
+      
+    useEffect(() => {
+      window.addEventListener("scroll", () => {
+        if(window.scrollY > 150) {
+          setFixed(true)
+        }
+        if(window.scrollY < 150) {
+          setFixed(false)
+        }
+      })
+    }, [])
 
   return (
     <div id="project-detail" className="min-h-screen bg-linear-to-br from-background via-background to-muted/30">      
@@ -579,7 +592,7 @@ export default function ProjectDetail({projectIndex, setHome}) {
       </div>
 
       {/* Back Button */}
-      <button className=" m-6 md:m-12 z-100 mb-9 sticky top-9 inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:scale-105 font-medium text-sm"
+      <button className={` ${fixed? 'fixed' : ''} m-6 md:m-12 z-100 mb-9 top-9 inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:scale-105 font-medium text-sm`}
         onClick={() => {
           setHome(true)
           window.scrollTo(0, 0);

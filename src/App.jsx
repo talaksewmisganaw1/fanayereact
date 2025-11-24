@@ -1,5 +1,4 @@
-import React, { lazy, useState}  from 'react'
-import { Routes, Route } from "react-router-dom"
+import React, { lazy, useEffect, useState}  from 'react'
 import FeaturedProjects from './components/FeaturedProjects'
 // import Services from './components/Services'
 import About from './components/About'
@@ -8,7 +7,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import BuildingLoader from './components/BuildingLoader'
 import Opening from './components/opening'
-const ProjectDetail = lazy(() => import("./components/ProjectDetail"));
+import ProjectDetail from './components/ProjectDetail'
 
 export default function App() {
   const [loader, setLoader] = useState(true)
@@ -17,6 +16,7 @@ export default function App() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [logoname, setLogoname] = useState(false);
   const [cursor, setCursor] = useState(false);
+
 
   return (
     <div className={`${isAnimating? 'h-auto overflow-scroll': 'h-screen overflow-hidden'}`}>
