@@ -7,10 +7,74 @@ import eskinderImg from "../assets/covers/eskinder.webp";
 import fikirteImg from "../assets/covers/fikirte.webp";
 import freelanceImg from "../assets/covers/freelance.webp";
 import hanaImg from "../assets/covers/hanna.webp";
+import betelImg from "../assets/covers/betel1.webp";
+import labImg from "../assets/covers/lab2.webp";
+import brookImg from "../assets/covers/brook3.webp";
+import cafeImg from "../assets/covers/cafe4.webp";
+import sholaAptImg from "../assets/covers/aptShola5.webp";
+import koyeResidenceImg from "../assets/covers/residenceKoye6.webp";
+import haileAptImg from "../assets/covers/aptHaile7.webp";
+
 
 const projects = [
-  {
-    id: 1,
+    {
+      id: 1,
+      title: "Mixed Use Apartment",
+      category: "Mixed",
+      image: betelImg,
+      description:
+        "A Mixed Use Apartment I paticipated in rendering the project.",
+    },
+    {
+    id: 2,
+    title: "Computer Laboratory",
+    category: "Mixed",
+    image: labImg,
+    description:
+      "Computer Laboratory I paticipated in rendering the project.",
+  },
+    {
+    id: 3,
+    title: "Brook Apartment",
+    category: "Apartment",
+    image: brookImg,
+    description:
+      "An Apartment I paticipated in intrior designing and rendering.",
+  },
+    {
+    id: 4,
+    title: "River Side Cafe",
+    category: "Cafeteria",
+    image: cafeImg,
+    description:
+      "A cafeteria projet I paticipated in intrior designing and rendering.",
+  },
+    {
+    id: 5,
+    title: "Apartment Project",
+    category: "Apartment",
+    image: sholaAptImg,
+    description:
+      "An Apartment Project I paticipated in interior designing and rendering.",
+  },
+    {
+    id: 6,
+    title: "Residence Project",
+    category: "Residence",
+    image: koyeResidenceImg,
+    description:
+      "A Residence Project I paticipated rendering.",
+  },
+    {
+    id: 7,
+    title: "Apartment Project",
+    category: "Apartment",
+    image: haileAptImg,
+    description:
+      "An Apartment Project I paticipated in rendering.",
+  },
+    {
+    id: 8,
     title: "Legacy Apartment",
     category: "Mixed",
     image: piassaImg,
@@ -18,7 +82,7 @@ const projects = [
       "G+11 Apartment I paticipated in working drawings and creating detailed video rendering.",
   },
   {
-    id: 2,
+    id: 9,
     title: "G+1 Residence",
     category: "Residential",
     image: hanaImg,
@@ -26,7 +90,7 @@ const projects = [
       "A G+1 residence I was responsible for preparing working drawings and producing high-quality renderings.",
   },
   {
-    id: 3,
+    id: 10,
     title: "Gunna St. Michael Church",
     category: "Religious",
     image: gunaMikael,
@@ -34,7 +98,7 @@ const projects = [
       "A project of Gunna St. Michael Church I participated in producing detailed plans and visualizations.",
   },
   {
-    id: 4,
+    id: 11,
     title: "G+2 Residence",
     category: "Residential",
     image: eskinderImg,
@@ -42,7 +106,7 @@ const projects = [
       "A G+2 residence I take part in preparing working drawings and detailed drawings to ensure crafted construction work.",
   },
   {
-    id: 5,
+    id: 12,
     title: "G+2 Residence",
     category: "Residential",
     image: fikirteImg,
@@ -50,7 +114,7 @@ const projects = [
       "A G+2 residence I contributed to creating working drawings and  design details for a smooth construction process.",
   },
   {
-    id: 6,
+    id: 13,
     title: "Interior Design Rendering",
     category: "Interior",
     image: freelanceImg,

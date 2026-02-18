@@ -1,55 +1,216 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate  } from "react-router-dom";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 
+const betelMixedRendersImport = import.meta.glob('/src/assets/1betelMixed/renders/*.{jpg,png,jpeg,webp}', { eager: true });
+const betelMixedRenders = Object.values(betelMixedRendersImport).map(img => img.default);
 
-const piassaFloorplansImport = import.meta.glob('/src/assets/piassa/floor plans/*.png', { eager: true });
-const piassaSiteplansImport = import.meta.glob('/src/assets/piassa/siteplan/*.png', { eager: true });
+const labRendersImport = import.meta.glob('/src/assets/2lab/renders/*.{jpg,png,jpeg,webp}', { eager: true });
+const labRenders = Object.values(labRendersImport).map(img => img.default);
+
+const brookAptRendersImport = import.meta.glob('/src/assets/3brookApt/renders/*.{jpg,png,jpeg,webp}', { eager: true });
+const brookAptRenders = Object.values(brookAptRendersImport).map(img => img.default);
+
+const cafeRendersImport = import.meta.glob('/src/assets/4cafe/renders/*.{jpg,png,jpeg,webp}', { eager: true });
+const cafeRenders = Object.values(cafeRendersImport).map(img => img.default);
+
+const aptInSholaRendersImport = import.meta.glob('/src/assets/5aptInShola/renders/*.{jpg,png,jpeg,webp}', { eager: true });
+const aptInSholaRenders = Object.values(aptInSholaRendersImport).map(img => img.default);
+
+const residenceInKoyeRendersImport = import.meta.glob('/src/assets/6residenceInKoye/renders/*.{jpg,png,jpeg,webp}', { eager: true });
+const residenceInKoyeRenders = Object.values(residenceInKoyeRendersImport).map(img => img.default);
+
+const aptInHaileGarmentRendersImport = import.meta.glob('/src/assets/7aptInHaileGarment/renders/*.{jpg,png,jpeg,webp}', { eager: true });
+const aptInHaileGarmentRenders = Object.values(aptInHaileGarmentRendersImport).map(img => img.default);
+
 const piassaRendersImport = import.meta.glob('/src/assets/piassa/renders/*.{jpg,png,jpeg,webp}', { eager: true });
-
-const piassaFloorplans = Object.values(piassaFloorplansImport).map(img => img.default);
-const piassaSiteplans = Object.values(piassaSiteplansImport).map(img => img.default);
 const piassaRenders = Object.values(piassaRendersImport).map(img => img.default);
 
-const hannaFloorplansImport = import.meta.glob('/src/assets/hanna/floor plans/*.png', { eager: true });
-const hannaSiteplansImport = import.meta.glob('/src/assets/hanna/siteplan/*.png', { eager: true });
 const hannaRendersImport = import.meta.glob('/src/assets/hanna/renders/*.{jpg,png,jpeg,webp}', { eager: true });
-
-const hannaFloorplans = Object.values(hannaFloorplansImport).map(img => img.default);
-const hannaSiteplans = Object.values(hannaSiteplansImport).map(img => img.default);
 const hannaRenders = Object.values(hannaRendersImport).map(img => img.default);
 
-const guna_Michael_FloorplansImport = import.meta.glob('/src/assets/guna_Michael_/floor plans/*.png', { eager: true });
-const guna_Michael_SiteplansImport = import.meta.glob('/src/assets/guna_Michael_/siteplan/*.png', { eager: true });
 const guna_Michael_RendersImport = import.meta.glob('/src/assets/guna_Michael_/renders/*.{jpg,png,jpeg,webp}', { eager: true });
-
-
-const guna_Michael_Floorplans = Object.values(guna_Michael_FloorplansImport).map(img => img.default);
-const guna_Michael_Siteplans = Object.values(guna_Michael_SiteplansImport).map(img => img.default);
 const guna_Michael_Renders = Object.values(guna_Michael_RendersImport).map(img => img.default);
 
-const eskinderFloorplansImport = import.meta.glob('/src/assets/eskinder/floor plans/*.png', { eager: true });
 const eskinderRendersImport = import.meta.glob('/src/assets/eskinder/renders/*.{jpg,png,jpeg,webp}', { eager: true });
-
-const eskinderFloorplans = Object.values(eskinderFloorplansImport).map(img => img.default);
 const eskinderRenders = Object.values(eskinderRendersImport).map(img => img.default);
 
-const fikirteFloorplansImport = import.meta.glob('/src/assets/fikirte/floor plans/*.{jpg,png,jpeg}', { eager: true });
 const fikirteRendersImport = import.meta.glob('/src/assets/fikirte/renders/*.{jpg,png,jpeg,webp}', { eager: true });
-
-const fikirteFloorplans = Object.values(fikirteFloorplansImport).map(img => img.default);
 const fikirteRenders = Object.values(fikirteRendersImport).map(img => img.default);
 
 const interiorRendersImport = import.meta.glob('/src/assets/interior/*.{jpg,png,jpeg,webp}', { eager: true });
 const interiorRenders = Object.values(interiorRendersImport).map(img => img.default);
 
-
-export default function ProjectDetail({projectIndex, setHome}) {
-    const navigate = useNavigate();
-
-
+export default function ProjectDetail({ projectIndex, setHome }) {
 
     const projectsList = [
+      {   
+        title: "Mixed Use Apartment",
+        year: "2018 E.C.",
+        location: "Betel, Addis Ababa",
+        description: [
+          "A Mixed Use Apartment located in Betel. I was responsible for the architectural rendering of the project, focusing on creating realistic visualizations that highlight the building's design and materials.",
+          "The renderings were used to communicate the design intent to stakeholders and provide a clear vision of the completed structure within its environment."
+        ],
+        contents: [
+          {
+            text: "This mixed-use apartment features a modern, clean façade with strong vertical lines and a balanced, symmetrical design. The upper floors are dedicated to residential units with spacious balconies and large windows for natural light.",
+            img: betelMixedRenders[0]
+          }, {
+            text: "The ground and lower levels are designed for commercial use, creating an active street presence. Transparent glass fronts and open layouts make the spaces ideal for offices, cafés, or retail functions.",
+            img: betelMixedRenders[1]
+          }, {
+            text: "A central entrance with clear signage creates a strong visual identity and easy access for both residents and visitors. The layered structure adds depth and architectural character.",
+            img: betelMixedRenders[2]
+          }, {
+            text: "The overall design combines functionality, aesthetics, and urban integration, making the building suitable for high-density city living with mixed residential and commercial use.",
+            img: betelMixedRenders[3]
+          }
+        ]
+      },
+      {
+        title: "Computer Laboratory",
+        year: "2018 E.C.",
+        location: "Addis Ababa, Ethiopia",
+        description: [
+          "An educational facility project where I participated in the architectural rendering. The focus was on creating a functional yet modern aesthetic for a computer laboratory environment.",
+          "My contribution involved producing detailed 3D visualizations that showcased the interior layout, lighting, and technical integration."
+        ],
+        contents: [
+          {
+            text: "The dining area features a bright, airy atmosphere characterized by large perimeter windows and soft, ambient illumination from oversized spherical pendant lights. This combination creates a cozy yet professional environment suitable for various times of day.",
+            img: labRenders[0]
+          }, {
+            text: "The design utilizes light polished tile flooring and wood-toned furniture to establish a warm, organic foundation. A deep forest-green accent wall provides a sophisticated contrast, adding depth and modern flair to the overall color scheme.",
+            img: labRenders[1]
+          }, {
+            text: "A rhythmic slatted timber ceiling serves as a key architectural feature, adding visual warmth and defining the primary dining zone. This textured element helps structure the space and distinguishes it from the expansive glass walls.",
+            img: labRenders[2]
+          }, {
+            text: "The floor plan is optimized for flexibility, featuring a mix of individual tables and comfortable banquette seating. This functional arrangement supports a seamless transition from a casual coffee spot to a more formal dining setting while maintaining a clean flow.",
+            img: labRenders[3]
+          }
+        ]
+      },
+      {
+        title: "Brook Apartment",
+        year: "2018 E.C.",
+        location: "Addis Ababa, Ethiopia",
+        description: [
+          "A residential apartment project where I was involved in interior design and rendering. I worked on selecting materials and colors that create a warm and inviting atmosphere.",
+          "The project showcases my ability to blend functionality with contemporary aesthetic choices in a residential setting."
+        ],
+        contents: [
+          {
+            text: "The design features a striking Contemporary Minimalist aesthetic, defined by a crisp white and charcoal palette. The central eight-story tower creates a strong vertical focus, balanced by two-story modern townhomes that establish a rhythmic, cohesive streetscape.",
+            img: brookAptRenders[0]
+          }, {
+            text: "Expansive floor-to-ceiling glazing wraps the facade, promising bright, airy living spaces and panoramic views. These large window modules, paired with recessed balconies, add architectural depth and a sophisticated sense of transparency to the structure.",
+            img: brookAptRenders[1]
+          }, {
+            text: "The project utilizes high-contrast materials like smooth masonry, dark metallic frames, and glass railings for an industrial-chic finish. This clean look is softened by integrated greenery on the rooftop and ground level, grounding the building in its environment.",
+            img: brookAptRenders[2]
+          }, {
+            text: "By combining high-rise apartments with intimate townhomes, the development offers a mixed-typology approach. This design appeals to a diverse urban demographic, blending the luxury of elevated views with the privacy of street-level residential comfort.",
+            img: brookAptRenders[3]
+          }, {
+            text: "",
+            img: [brookAptRenders[4], brookAptRenders[5]]
+          }, {
+            text: "",
+            img: [brookAptRenders[6], brookAptRenders[7]]
+          }
+        ]
+      },
+      {
+        title: "River Side Cafe",
+        year: "2018 E.C.",
+        location: "Addis Ababa, Ethiopia",
+        description: [
+          "A hospitality project focusing on a riverside cafe. My role included interior design and architectural rendering, aiming to create a serene and enjoyable space for visitors.",
+          "The design leverages its riverside location, incorporating natural elements and an open layout to maximize the customer experience."
+        ],
+        contents: [
+          {
+            text: "The dining area features a bright, airy atmosphere characterized by large perimeter windows and soft, ambient illumination from oversized spherical pendant lights. This combination creates a cozy yet professional environment suitable for various times of day.",
+            img: cafeRenders[0]
+          }, {
+            text: "The design utilizes light polished tile flooring and wood-toned furniture to establish a warm, organic foundation. A deep forest-green accent wall provides a sophisticated contrast, adding depth and modern flair to the overall color scheme.",
+            img: cafeRenders[1]
+          }, {
+            text: "A rhythmic slatted timber ceiling serves as a key architectural feature, adding visual warmth and defining the primary dining zone. This textured element helps structure the space and distinguishes it from the expansive glass walls.",
+            img: cafeRenders[2]
+          }, {
+            text: "The floor plan is optimized for flexibility, featuring a mix of individual tables and comfortable banquette seating. This functional arrangement supports a seamless transition from a casual coffee spot to a more formal dining setting while maintaining a clean flow.",
+            img: cafeRenders[3]
+          }
+        ]
+      },
+      {
+        title: "Apartment Project",
+        year: "2018 E.C.",
+        location: "Addis Ababa, Ethiopia",
+        description: [
+          "Located in Shola, this apartment project involved interior design and rendering. I focused on creating a modern living space that caters to urban dwellers.",
+          "The visualizations highlight the use of vertical space and the integration of natural light into the living areas."
+        ],
+        contents: [
+          {
+            text: "Smart interior solutions were implemented to make the most of the available space, ensuring a comfortable and functional home.",
+            img: aptInSholaRenders[0]
+          }
+        ],
+        visuals: [
+          {
+            type: "Renders",
+            items: aptInSholaRenders.map((url, i) => ({ id: i, title: `Render ${i + 1}`, url }))
+          }
+        ]
+      },
+      {
+        title: "Residence Project",
+        year: "2018 E.C.",
+        location: "Addis Ababa, Ethiopia",
+        description: [
+          "A residential project in Koye where I performed architectural rendering. The goal was to present the client with a realistic view of their future home.",
+          "The renderings showcase the exterior design and the surrounding landscape, providing a comprehensive visualization of the project."
+        ],
+        contents: [
+          {
+            text: "The exterior rendering focuses on the building's form and its relationship with the surrounding environment.",
+            img: residenceInKoyeRenders[0]
+          }
+        ],
+        visuals: [
+          {
+            type: "Renders",
+            items: residenceInKoyeRenders.map((url, i) => ({ id: i, title: `Render ${i + 1}`, url }))
+          }
+        ]
+      },
+      {
+        title: "Apartment Project",
+        year: "2018 E.C.",
+        location: "Addis Ababa, Ethiopia",
+        description: [
+          "An apartment building in Haile Garment. My contribution was centered on architectural rendering, creating high-definition visualizations for the project.",
+          "I focused on the architectural details and the material finishes to ensure a premium look and feel."
+        ],
+        contents: [
+          {
+            text: "The interior utilizes a seamless open-concept design that merges the living and dining areas into one cohesive social hub. The layout prioritizes flow, using a central axis that draws the eye from the casual lounge area straight through to the formal dining zone.",
+            img: aptInHaileGarmentRenders[0]
+          }, {
+            text: "A refined neutral foundation of off-white walls is punctuated by a bold, sapphire-blue sofa that serves as the primary focal point. Warm gold accents and earthy wooden furniture balance these cool tones, creating a welcoming and upscale atmosphere.",
+            img: aptInHaileGarmentRenders[1]
+          }, {
+            text: "The design features subtle geometric textures, particularly in the vertical paneling of the TV feature wall and the recessed ceiling tray. These \"quiet luxury\" elements add verticality and depth without the need for heavy ornamentation.",
+            img: aptInHaileGarmentRenders[2]
+          }, {
+            text: "Strategic layered lighting—including recessed spotlights and halo pendants—ensures the space remains bright and dynamic. Minimalist abstract artwork echoes the room's color scheme, reinforcing a sense of intentionality and modern style.",
+            img: aptInHaileGarmentRenders[3]
+          }
+        ]
+      },
       {   
         title: "Legacy Apartment",
         year: "2018 E.C.",
@@ -74,72 +235,16 @@ export default function ProjectDetail({projectIndex, setHome}) {
             img: piassaRenders[3]
           }, {
             text: "",
-            img: piassaRenders[4]
+            img: [piassaRenders[4]]
           }, {
             text: "",
-            img: piassaRenders[5]
+            img: [piassaRenders[5]]
           }, {
             text: "",
-            img: piassaRenders[6]
+            img: [piassaRenders[6]]
           }
         ],
-        video: true,
-        visuals: [
-          {
-            type: "Site Plan",
-            items: [
-              {
-                id: 4,
-                title: "Site Plan",
-                url: piassaSiteplans[0]
-              }
-            ]
-          }, {
-            type: "Floor Plans",
-            items: [
-              {
-                id: 5,
-                title: "Semi Basement Plan (Service Floor)",
-                url: piassaFloorplans[0]
-              },
-              {
-                id: 6,
-                title: "Second Basement Plan (Service Floor)",
-                url: piassaFloorplans[1]
-              },
-              {
-                id: 7,
-                title: "Ground Floor Plan",
-                url: piassaFloorplans[2]
-              },
-              {
-                id: 8,
-                title: "1st Floor Plan",
-                url: piassaFloorplans[3]
-              },
-              {
-                id: 9,  
-                title: "2nd to 7th Floor Plan",
-                url: piassaFloorplans[4]
-              },
-              {
-                id: 10,  
-                title: "8th to 11th Floor Plan",
-                url: piassaFloorplans[5]
-              },
-              {
-                id: 11,  
-                title: "Roof Plan",
-                url: piassaFloorplans[6]
-              },
-              {
-                id: 12,  
-                title: "Terrace Floor Plan",
-                url: piassaFloorplans[7]
-              },
-            ]
-          }
-        ]
+        video: true
       },
       {
         title: "G+1 Residence",
@@ -148,23 +253,6 @@ export default function ProjectDetail({projectIndex, setHome}) {
         description: [
           "A G+1 private residence designed to meet modern living standards. I prepared all the working drawings, including floor plans, elevations, and sections, to ensure every design element was clearly documented.",
           "In addition, I produced detailed 3D renderings to showcase both the interior and exterior designs. These renderings helped communicate the spatial arrangement, materials, and overall aesthetic to the client."
-        ],
-        renders: [
-          {
-            id: 1,  
-            title: "Image 1",
-            url: hannaRenders[0]
-          },
-          {
-            id: 2,  
-            title: "Image 2",
-            url: hannaRenders[1]
-          },
-          {
-            id: 3,  
-            title: "Image 3",
-            url: hannaRenders[2]
-          }
         ], 
         contents: [
           {
@@ -180,47 +268,6 @@ export default function ProjectDetail({projectIndex, setHome}) {
             text: "Clean, white box forms that define the upper volumes, creating a crisp and modern aesthetic. The material combination emphasizes the building’s hierarchy, with while the white boxes appear light and floating above. The interplay of color, texture, and geometric form results in a balanced, visually striking residence that harmonizes modern design with natural materials.",
             img: hannaRenders[3]
           }
-        ],
-        visuals: [
-          {
-            type: "Site Plan",
-            items: [
-              {
-                id: 4,
-                title: "Site Plan",
-                url: hannaSiteplans[0]
-              }
-            ]
-          }, {
-            type: "Floor Plans",
-            items: [
-              {
-                id: 5,
-                title: "1st Basement Plan",
-                url: hannaFloorplans[0]
-              },
-              {
-                id: 6,
-                title: "2nd Basement Plan",
-                url: hannaFloorplans[1]
-              },
-              {
-                id: 7,
-                title: "Ground Floor Plan",
-                url: hannaFloorplans[2]
-              },
-              {
-                id: 8,
-                title: "1st Floor Plan",
-                url: hannaFloorplans[3]
-              },
-              {
-                id: 9,  
-                title: "Roof Plan",
-                url: hannaFloorplans[4]
-              },
-            ]
-          }
         ]
       }, 
       {
@@ -231,23 +278,6 @@ export default function ProjectDetail({projectIndex, setHome}) {
           "This project involved the renewal of Gunna St. Michael Church. I focused on producing detailed working drawings that addressed both structural and architectural elements.",
           "I also developed visualizations to guide the renovation process, ensuring that the historical and cultural significance of the church was preserved while introducing modern improvements where needed."
         ],
-        renders: [
-          {
-            id: 1,  
-            title: "Image 1",
-            url: guna_Michael_Renders[0]
-          },
-          {
-            id: 2,  
-            title: "Image 2",
-            url: guna_Michael_Renders[1]
-          },
-          {
-            id: 3,  
-            title: "Image 3",
-            url: guna_Michael_Renders[2]
-          }
-        ],  
         contents: [
           {
             text: "The church is designed by thoughtfully adapting elements of ancient ecclesiastical architecture, blending historic interior and exterior motifs with modern functionality. The result is a harmonious space that honors heritage and elevates the worship experience.",
@@ -262,37 +292,6 @@ export default function ProjectDetail({projectIndex, setHome}) {
             text: "improving visual harmony, the updated materials were chosen for their durability and long-term performance. The refined finishes create a cohesive environment that supports both daily use and special spiritual gatherings.",
             img: guna_Michael_Renders[3]
           }
-        ],
-        visuals: [
-          {
-            type: "Site Plan",
-            items: [
-              {
-                id: 4,
-                title: "Site Plan",
-                url: guna_Michael_Siteplans[0]
-              }
-            ]
-          }, {
-            type: "Floor Plans",
-            items: [
-              {
-                id: 5,
-                title: "Floor Plan",
-                url: guna_Michael_Floorplans[0]
-              },
-              {
-                id: 6,
-                title: "Roof Plan 1",
-                url: guna_Michael_Floorplans[1]
-              },
-              {
-                id: 7,
-                title: "Roof Plan 2",
-                url: guna_Michael_Floorplans[2]
-              },
-            ]
-          }
         ]
     },
     {
@@ -303,46 +302,6 @@ export default function ProjectDetail({projectIndex, setHome}) {
           "A G+2 residential building. I prepared full working drawings and detailed drawings covering interiors, and exterior finishes to ensure the project could be built accurately.",
           "The detailed documentation allowed for smooth communication with contractors, minimizing errors during construction and maintaining the integrity of the original design."
         ],
-        renders: [
-          {
-            id: 1,  
-            title: "Image 1",
-            url: eskinderRenders[0]
-          },
-          {
-            id: 2,  
-            title: "Image 2",
-            url: eskinderRenders[1]
-          },
-          {
-            id: 3,  
-            title: "Image 3",
-            url: eskinderRenders[2]
-          }, {
-            id: 4,  
-            title: "Image 1",
-            url: eskinderRenders[3]
-          },
-          {
-            id: 5,  
-            title: "Image 2",
-            url: eskinderRenders[4]
-          },
-          {
-            id: 6,  
-            title: "Image 3",
-            url: eskinderRenders[5]
-          } , {
-            id: 7,  
-            title: "Image 1",
-            url: eskinderRenders[6]
-          },
-          {
-            id: 8,  
-            title: "Image 2",
-            url: eskinderRenders[7]
-          },
-        ],  
         contents: [
           {
             text: "A double-height bedroom designed to create a sense of grandeur and openness, giving the client an elevated spatial experience. This design enhances natural light penetration and improves ventilation, making the space feel more expansive and luxurious.",
@@ -357,43 +316,6 @@ export default function ProjectDetail({projectIndex, setHome}) {
             text: "The design integrates nature directly into the interior, creating dedicated plant spaces that bring greenery and life into the home. These areas not only enhance visual appeal but also promote a calming and refreshing atmosphere, fostering a strong connection between the occupants and the natural environment.",
             img: eskinderRenders[3]
           }
-        ],
-        visuals: [
-          {
-            type: "Floor Plans",
-            items: [
-              {
-                id: 9,
-                title: "Semi Basement Plan (Service Floor)",
-                url: eskinderFloorplans[0]
-              },
-              {
-                id: 10,
-                title: "Second Basement Plan (Service Floor)",
-                url: eskinderFloorplans[1]
-              },
-              {
-                id: 11,
-                title: "Ground Floor Plan",
-                url: eskinderFloorplans[2]
-              },
-              {
-                id: 12,
-                title: "1st Floor Plan",
-                url: eskinderFloorplans[3]
-              },
-              {
-                id: 13,  
-                title: "2nd to 7th Floor Plan",
-                url: eskinderFloorplans[4]
-              },
-              {
-                id: 14,  
-                title: "8th to 11th Floor Plan",
-                url: eskinderFloorplans[5]
-              }
-            ]
-          }
         ]
     },
     {
@@ -403,24 +325,7 @@ export default function ProjectDetail({projectIndex, setHome}) {
         description: [
           "A G+2 residence covering 150 sqm. I created all working drawings, detailing every room, façade, and site layout, ensuring precise implementation of the design.",
           "I coordinated design details and created clear documentation for construction, allowing contractors to follow the design intent seamlessly while maintaining quality standards."
-        ],
-        renders: [
-          {
-            id: 1,  
-            title: "Image 1",
-            url: fikirteRenders[0]
-          },
-          {
-            id: 2,  
-            title: "Image 2",
-            url: fikirteRenders[1]
-          },
-          {
-            id: 3,  
-            title: "Image 3",
-            url: fikirteRenders[2]
-          }
-        ],  
+        ], 
         contents: [
           {
             text: "rooms with open balconies, designed to extend living spaces outdoors and enhance the connection with the surrounding environment. These balconies provide abundant natural light and fresh air, creating a relaxing and inviting atmosphere for residents. ",
@@ -435,38 +340,6 @@ export default function ProjectDetail({projectIndex, setHome}) {
             text: "a contemporary color palette of crisp white and deep dark grey, creating a striking contrast that highlights the architectural volumes. White surfaces emphasize openness and light, while dark grey elements provide depth and visual grounding, resulting in a balanced and modern façade.",
             img: fikirteRenders[3]
           }
-        ],
-        visuals: [
-          {
-            type: "Floor Plans",
-            items: [
-              {
-                id: 4,
-                title: "Ground Floor Plan",
-                url: fikirteFloorplans[0]
-              },
-              {
-                id: 5,
-                title: "First Floor Plan",
-                url: fikirteFloorplans[1]
-              },
-              {
-                id: 6,
-                title: "Second Floor Plan",
-                url: fikirteFloorplans[2]
-              },
-              {
-                id: 7,
-                title: "Third Floor Plan",
-                url: fikirteFloorplans[3]
-              },
-              {
-                id: 8,  
-                title: "Roof Plan",
-                url: fikirteFloorplans[4]
-              }
-            ]
-          }
         ]
     },
     {
@@ -477,31 +350,6 @@ export default function ProjectDetail({projectIndex, setHome}) {
           "A 64 sqm interior design rendering project. I created realistic 3D renderings capturing spatial arrangement, furniture placement, lighting, and material finishes.",
           "These renderings provided the client with a complete understanding of the proposed design, allowing for informed decisions before the execution of the interior design project."
         ],
-        renders: [
-          {
-            id: 1,  
-            title: "Image 1",
-            url: interiorRenders[0]
-          },
-          {
-            id: 2,  
-            title: "Image 2",
-            url: interiorRenders[1]
-          },
-          {
-            id: 3,  
-            title: "Image 3",
-            url: interiorRenders[2]
-          }, {
-            id: 4,  
-            title: "Image 4",
-            url: interiorRenders[3]
-          }, {
-            id: 5,  
-            title: "Image 5",
-            url: interiorRenders[4]
-          }
-        ], 
         contents: [
           {
             text: "a light color palette, creating a bright, airy, and welcoming atmosphere. Soft neutral tones enhance the sense of spaciousness, while carefully selected materials add subtle texture and warmth to the space.",
@@ -516,129 +364,89 @@ export default function ProjectDetail({projectIndex, setHome}) {
             text: "enhances the modern aesthetic of the interiors, allowing textures, materials, and subtle accents to stand out without overwhelming the design. Grey furniture creates a cohesive and balanced environment, offering both comfort and style for everyday living.",
             img: interiorRenders[3]
           }
-        ],
-        visuals: []
-    }
-    ];
-
-    const location = useLocation();
-    
-    const project = projectsList[projectIndex]
-
-    const [currentPhoto, setCurrentPhoto] = useState(0);
-
-    const [currentIndex, setCurrentIndex] = useState({
-        "Elevations": 0,
-        "Sections": 0,
-        "Site Plan": 0,
-        "Floor Plans": 0,
-        "Renders": 0,
-        "Detail Drawings": 0,
-        "Other Architectural Drawings": 0,
-    });
-
-    const [openModal, setOpenModal] = useState(false);
-    const [modalSrc, setModalSrc] = useState();
-    const [modalAlt, setModalAlt] = useState()
-
-    const [fixed, setFixed] = useState();
-
-    useEffect(() => {
-      const htmlParent = document.getElementsByTagName("html")[0];
-      if (openModal) {
-        htmlParent.classList.add("overflow-hidden");
-      } else {
-        htmlParent.classList.remove("overflow-hidden");
+        ]
       }
-    }, [openModal]);
+  ];
 
-    const handleNext = (type) => {
-      const category = project.visuals.find((cat) => cat.type === type);
-      setCurrentIndex((prev) => ({
-        ...prev,
-        [type]: ((prev[type] || 0) + 1) % category.items.length,
-      }));
-    };
+  const project = projectsList[projectIndex]
 
-    const handlePrev = (type) => {
-      const category = project.visuals.find((cat) => cat.type === type);
-      setCurrentIndex((prev) => ({
-        ...prev,
-        [type]: ((prev[type] || 0) - 1 + category.items.length) % category.items.length,
-      }));
-    };
+  const [fixed, setFixed] = useState();
 
-
-      
-    useEffect(() => {
-      window.addEventListener("scroll", () => {
-        if(window.scrollY > 150) {
-          setFixed(true)
-        }
-        if(window.scrollY < 150) {
-          setFixed(false)
-        }
-      })
-    }, [])
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        setFixed(true)
+      }
+      if (window.scrollY < 10) {
+        setFixed(false)
+      }
+    })
+  }, [])
 
   return (
-    <div id="project-detail" className="min-h-screen bg-linear-to-br from-background via-background to-muted/30">      
+    <div id="project-detail" className="bg-linear-to-br from-background via-background to-muted/30">
+      {/* Back Button */}
+      <button className={` ${fixed ? 'fixed' : ''} m-6 md:m-12 z-100 top-4 inline-flex items-center gap-2 px-2 py-2 bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:scale-105 font-medium text-sm rounded-full`}
+        onClick={() => {
+          setHome(true)
+          window.scrollTo(0, 0);
+        }
+        }
+      >
+        <ChevronLeft size={28} />
+      </button>
       {/* Header Section */}
-      <div className="mb-1 m-6 md:py-12 md:mb-1">
+      <div className="mb-1 m-6 md:pb-12 md:mb-1">
         <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-1">
           Project Showcase
         </h1>
         <div className="h-1 w-20 bg-linear-to-r from-primary to-accent rounded-full" />
       </div>
 
-      {/* Back Button */}
-      <button className={` ${fixed? 'fixed' : ''} m-6 md:m-12 z-100 mb-9 top-9 inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:scale-105 font-medium text-sm`}
-        onClick={() => {
-          setHome(true)
-          window.scrollTo(0, 0);
-          }
-        }
-      >
-        <ChevronLeft size={18} />
-        Back to home
-      </button>
       <div className="w-full p-5">
 
         {/* 1st (odd) */}
         {project.contents.map((item, index) => {
           return <>
-          {item.text ? 
-            <div className={`${index % 2 === 1? "bg-muted/30": ""} w-full flex flex-col md:flex-row items-center justify-between gap-1 md:h-[600px] max-w-7xl m-auto`}>
-              <div className={`${index % 2 === 0? "md:order-2": "md:order-1"} order-2 w-[80%] md:w-[50%] text-base md:text-lg text-foreground/60 pl-9 pb-9 pr-2 md:pr-9 mb-18 mt-8 flex flex-col items-end ml-auto justify-end md:items-center md:justify-center text-center`}>{item.text}
-                {item.author && <div className="my-4 w-full flex justify-end pr-5 italic">{item.author}</div>}
-              </div>
-              <div className={`${index % 2 === 0? "md:order-1": "md:order-2"} p-2 md:p-0 order-1 w-full md:w-[50%] h-fit md:h-full flex items-center justify-center`}>
-                <img src={item.img} className="h-full object-cover" alt="" />
+            {item.text ?
+            <div className={`${index % 2 === 1 ? "bg-muted/90 mx-[-1.25rem] p-[1.2rem]" : ""}`}>
+              <div className={`w-full flex flex-col md:flex-row items-center justify-between gap-1 md:h-[600px] max-w-7xl m-auto`}>
+                <div className={`${index % 2 === 0 ? "md:order-2" : "md:order-1"} order-2 w-[80%] md:w-[50%] text-base md:text-lg text-foreground/60 pl-9 pb-9 pr-2 md:pr-9 mb-18 mt-8 flex flex-col items-end ml-auto justify-end md:items-center md:justify-center text-center`}>{item.text}
+                  {item.author && <div className="my-4 w-full flex justify-end pr-5 italic">{item.author}</div>}
+                </div>
+                <div className={`${index % 2 === 0 ? "md:order-1" : "md:order-2"} p-5 md:py-12 order-1 w-full md:w-[50%] h-fit md:h-full flex items-center justify-center`}>
+                  <img src={item.img} className="h-full object-cover" alt="" />
+                </div>
               </div>
             </div>:
-            <div className={`${index % 2 === 1? "bg-muted/30": ""} w-fit mt-5 flex flex-col md:flex-row items-center justify-between gap-6 md:h-[500px] max-w-7xl m-auto`}>
-              <div className="w-full h-full flex items-center justify-center">
-                <img src={item.img} className="h-full object-cover" alt="" />
-              </div> 
+            <div className={`${index % 2 === 1 ? "bg-muted/90 mx-[-1.25rem] px-[1.2rem]" : ""}`}>
+              <div className={`${item.img.length === 2 ? "flex-col md:flex-row justify-between":"flex-col justify-center"} h-fit gap-5 items-center w-full py-5 flex flex-col md:flex-row gap-6 md:h-[500px] max-w-7xl m-auto`}>
+                  <div className={`${item.img.length === 2 ? "w-full md:w-[48%] max-h-[90%]" : "w-fit"} h-full overflow-hidden`}>
+                    <img src={item.img[0]} className="w-full h-full object-fill" alt="" />
+                  </div>
+                  {item.img[1] && <div className={`${item.img.length === 2 ? "w-full md:w-[48%] max-h-[90%]" : "w-full"} h-full overflow-hidden`}>
+                    <img src={item.img[1]} className="w-full h-full object-cover" alt="" />
+                  </div>}
+              </div>
             </div>
-          }
+            }
           </>
         }
         )}
       </div>
       {
-      project.video && 
-      <div className="w:[90vw] lg:w-fit my-9 mx-auto flex justify-center items-center">
-        <iframe
-          className="w-[560px] h-[315px] lg:w-[1120px] lg:h-[630px]"
-          src="https://www.youtube.com/embed/3BLfain9X_w?si=cag90jbKqpg_Gl1C"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
-      </div>
+        project.video &&
+        <div className="w:[90vw] lg:w-fit my-9 mx-auto flex justify-center items-center">
+          <iframe
+            className="w-[560px] h-[315px] lg:w-[1120px] lg:h-[630px]"
+            src="https://www.youtube.com/embed/3BLfain9X_w?si=cag90jbKqpg_Gl1C"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
       }
 
     </div>
