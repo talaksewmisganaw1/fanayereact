@@ -155,14 +155,20 @@ export default function ProjectDetail({ projectIndex, setHome }) {
         ],
         contents: [
           {
-            text: "Smart interior solutions were implemented to make the most of the available space, ensuring a comfortable and functional home.",
+            text: "The dining area features a bright, airy atmosphere characterized by large perimeter windows and soft, ambient illumination from oversized spherical pendant lights. This combination creates a cozy yet professional environment suitable for various times of day.",
             img: aptInSholaRenders[0]
-          }
-        ],
-        visuals: [
+          },
           {
-            type: "Renders",
-            items: aptInSholaRenders.map((url, i) => ({ id: i, title: `Render ${i + 1}`, url }))
+            text: "The design utilizes light polished tile flooring and wood-toned furniture to establish a warm, organic foundation. A deep forest-green accent wall provides a sophisticated contrast, adding depth and modern flair to the overall color scheme.",
+            img: aptInSholaRenders[1]
+          },
+          {
+            text: "A rhythmic slatted timber ceiling serves as a key architectural feature, adding visual warmth and defining the primary dining zone. This textured element helps structure the space and distinguishes it from the expansive glass walls.",
+            img: aptInSholaRenders[2]
+          },
+          {
+            text: "The floor plan is optimized for flexibility, featuring a mix of individual tables and comfortable banquette seating. This functional arrangement supports a seamless transition from a casual coffee spot to a more formal dining setting while maintaining a clean flow.",
+            img: aptInSholaRenders[3]
           }
         ]
       },
@@ -176,14 +182,20 @@ export default function ProjectDetail({ projectIndex, setHome }) {
         ],
         contents: [
           {
-            text: "The exterior rendering focuses on the building's form and its relationship with the surrounding environment.",
+            text: "The interiors utilize a seamless linear floor plan that integrates the living, dining, and kitchen areas into a single social hub. This layout maximizes the sense of space and flow, ensuring that functional zones remain airy and interconnected.",
             img: residenceInKoyeRenders[0]
-          }
-        ],
-        visuals: [
+          },
           {
-            type: "Renders",
-            items: residenceInKoyeRenders.map((url, i) => ({ id: i, title: `Render ${i + 1}`, url }))
+            text: "A clean, white-walled foundation is punctuated by bold sapphire-blue upholstery acting as a central focal point. Warm yellow pillows and wood-toned furniture provide an organic balance, preventing the minimalist palette from feeling stark.",
+            img: residenceInKoyeRenders[1]
+          },
+          {
+            text: "The design leans into modern geometric motifs, seen in the circular wall art and abstract paintings. Subtle architectural details, like recessed ceiling trays and vertical wall paneling, add layers of \"quiet luxury\" and visual depth.",
+            img: residenceInKoyeRenders[2]
+          },
+          {
+            text: "The space features a sophisticated lighting scheme, combining functional recessed spotlights with decorative pendant fixtures. This layering creates a dynamic atmosphere that transitions easily from a bright day environment to an intimate evening setting.",
+            img: residenceInKoyeRenders[3]
           }
         ]
       },
