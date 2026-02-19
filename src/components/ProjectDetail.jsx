@@ -22,6 +22,9 @@ const residenceInKoyeRenders = Object.values(residenceInKoyeRendersImport).map(i
 const aptInHaileGarmentRendersImport = import.meta.glob('/src/assets/7aptInHaileGarment/renders/*.{jpg,png,jpeg,webp}', { eager: true });
 const aptInHaileGarmentRenders = Object.values(aptInHaileGarmentRendersImport).map(img => img.default);
 
+const aptNewImport = import.meta.glob('/src/assets/8newApt/renders/*.{jpg,png,jpeg,webp}', { eager: true });
+const aptNewRenders = Object.values(aptNewImport).map(img => img.default);
+
 const piassaRendersImport = import.meta.glob('/src/assets/piassa/renders/*.{jpg,png,jpeg,webp}', { eager: true });
 const piassaRenders = Object.values(piassaRendersImport).map(img => img.default);
 
@@ -220,6 +223,45 @@ export default function ProjectDetail({ projectIndex, setHome }) {
           }, {
             text: "Strategic layered lighting—including recessed spotlights and halo pendants—ensures the space remains bright and dynamic. Minimalist abstract artwork echoes the room's color scheme, reinforcing a sense of intentionality and modern style.",
             img: aptInHaileGarmentRenders[3]
+          }
+        ]
+      },
+      {
+        title: "Apartment Project",
+        year: "2018 E.C.",
+        location: "Addis Ababa, Ethiopia",
+        description: [
+          "An apartment building in Haile Garment. My contribution was centered on architectural rendering, creating high-definition visualizations for the project.",
+          "I focused on the architectural details and the material finishes to ensure a premium look and feel."
+        ],
+        contents: [
+          {
+            text: "This contemporary open-plan space balances warm minimalism with functional luxury, using a seamless flow to unite the kitchen and lounge. Large-format marble flooring and a neutral \"earth and stone\" palette create an expansive feel, while a wooden breakfast bar acts as a soft architectural boundary between the culinary and relaxation zones.",
+            img: aptNewRenders[0]
+          }, {
+            text: "Textural depth is added through the integrated wood and stone TV feature wall, complemented by mid-century modern globe chandeliers that provide visual rhythm. The design prioritizes clean geometric lines and recessed lighting, resulting in a sophisticated, uncluttered environment built for both comfort and social interaction.",
+            img: aptNewRenders[1]
+          }, {
+            text: "This bedroom design emphasizes serene minimalism and functional zoning, utilizing a muted color palette of whites, taupes, and earthy browns. The space is architecturally defined by a recessed tray ceiling and integrated lighting, which create a soft, ambient glow that enhances the room's height and calming atmosphere.",
+            img: aptNewRenders[2]
+          }, {
+            text: "The layout thoughtfully separates the sleep area from a dedicated vanity and dressing nook at the far end, featuring built-in cabinetry and a sleek, backlit mirror. By pairing light wood plank flooring with plush area rugs and clean-lined furniture—like the modern accent chair and minimalist bedside globe lamp—the room achieves a balanced aesthetic of modern sophistication and cozy warmth.",
+            img: aptNewRenders[3]
+          }, {
+            text: "",
+            img: [aptNewRenders[4], aptNewRenders[5]]
+          }, {
+            text: "",
+            img: [aptNewRenders[6], aptNewRenders[7]]
+          }, {
+            text: "",
+            img: [aptNewRenders[8], aptNewRenders[9]]
+          }, {
+            text: "",
+            img: [aptNewRenders[10], aptNewRenders[11]]
+          }, , {
+            text: "",
+            img: [aptNewRenders[12]]
           }
         ]
       },

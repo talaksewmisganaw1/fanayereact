@@ -19,18 +19,21 @@ export default function App() {
 
 
   return (
-    <div className={`${isAnimating? 'h-auto overflow-scroll': 'h-screen overflow-hidden'}`}>
+    <div>
       <Opening  isAnimating={isAnimating} setIsAnimating={setIsAnimating} loader={loader} logoname={logoname} setLogoname={setLogoname} />
       {home && loader && <BuildingLoader setLoader={setLoader} />}
-      {home && <>
+      {home && isAnimating && <>
           <Navigation logoname={logoname}/>
           <FeaturedProjects setHome={setHome} setProjectIndex={setProjectIndex} />
           <About />
           <Contact />
+          <Footer />
         </>
       }
-      {!home && 
+      {!home && <>
           <ProjectDetail projectIndex={projectIndex} setHome={setHome} />
+          <Footer />
+        </>
       }
     </div>
   )

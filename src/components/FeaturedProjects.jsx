@@ -14,6 +14,7 @@ import cafeImg from "../assets/covers/cafe4.webp";
 import sholaAptImg from "../assets/covers/aptShola5.webp";
 import koyeResidenceImg from "../assets/covers/residenceKoye6.webp";
 import haileAptImg from "../assets/covers/aptHaile7.webp";
+import newAptImg from "../assets/covers/newApt8.webp";
 
 
 const projects = [
@@ -75,6 +76,14 @@ const projects = [
   },
   {
     id: 8,
+    title: "Apartment Project",
+    category: "Apartment",
+    image: newAptImg,
+    description:
+      "An Apartment Project I paticipated in interior designing and rendering.",
+  },
+  {
+    id: 9,
     title: "Legacy Apartment",
     category: "Mixed",
     image: piassaImg,
@@ -82,7 +91,7 @@ const projects = [
       "G+11 Apartment I paticipated in working drawings and creating detailed video rendering.",
   },
   {
-    id: 9,
+    id: 10,
     title: "G+1 Residence",
     category: "Residential",
     image: hanaImg,
@@ -90,7 +99,7 @@ const projects = [
       "A G+1 residence I was responsible for preparing working drawings and producing high-quality renderings.",
   },
   {
-    id: 10,
+    id: 11,
     title: "Gunna St. Michael Church",
     category: "Religious",
     image: gunaMikael,
@@ -98,7 +107,7 @@ const projects = [
       "A project of Gunna St. Michael Church I participated in producing detailed plans and visualizations.",
   },
   {
-    id: 11,
+    id: 12,
     title: "G+2 Residence",
     category: "Residential",
     image: eskinderImg,
@@ -106,7 +115,7 @@ const projects = [
       "A G+2 residence I take part in preparing working drawings and detailed drawings to ensure crafted construction work.",
   },
   {
-    id: 12,
+    id: 13,
     title: "G+2 Residence",
     category: "Residential",
     image: fikirteImg,
@@ -114,7 +123,7 @@ const projects = [
       "A G+2 residence I contributed to creating working drawings and  design details for a smooth construction process.",
   },
   {
-    id: 13,
+    id: 14,
     title: "Interior Design Rendering",
     category: "Interior",
     image: freelanceImg,
