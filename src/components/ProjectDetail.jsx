@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ChevronLeft } from "lucide-react";
+import "./detail.css"
 
 const betelMixedRendersImport = import.meta.glob('/src/assets/1betelMixed/renders/*.{jpg,png,jpeg,webp}', { eager: true });
 const betelMixedRenders = Object.values(betelMixedRendersImport).map(img => img.default);
@@ -463,12 +464,12 @@ export default function ProjectDetail({ projectIndex, setHome }) {
         {project.contents.map((item, index) => {
           return <>
             {item.text ?
-            <div className={`${index % 2 === 1 ? "bg-muted/90 mx-[-1.25rem] p-[1.2rem]" : ""}`}>
+            <div className={`${index % 2 === 1 ? "bg-muted/90" : ""}  mx-[-1.25rem] p-[1.2rem]`}>
               <div className={`w-full flex flex-col md:flex-row items-center justify-between gap-1 md:h-[600px] max-w-7xl m-auto`}>
                 <div className={`${index % 2 === 0 ? "md:order-2" : "md:order-1"} order-2 w-[80%] md:w-[50%] text-base md:text-lg text-foreground/60 pl-9 pb-9 pr-2 md:pr-9 mb-18 mt-8 flex flex-col items-end ml-auto justify-end md:items-center md:justify-center text-center`}>{item.text}
                   {item.author && <div className="my-4 w-full flex justify-end pr-5 italic">{item.author}</div>}
                 </div>
-                <div className={`${index % 2 === 0 ? "md:order-1" : "md:order-2"} p-5 md:py-12 order-1 w-full md:w-[50%] h-fit md:h-full flex items-center justify-center`}>
+                <div className={`${index % 2 === 0 ? "md:order-1" : "md:order-2 border border-white"} w-full bg-red-300 aspect-[1/0.85] shimmer order-1 md:w-[50%] flex items-center justify-center`}>
                   <img src={item.img} className="h-full object-cover" alt="" />
                 </div>
               </div>
