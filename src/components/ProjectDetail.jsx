@@ -77,16 +77,16 @@ export default function ProjectDetail({ projectIndex, setHome }) {
         ],
         contents: [
           {
-            text: "The dining area features a bright, airy atmosphere characterized by large perimeter windows and soft, ambient illumination from oversized spherical pendant lights. This combination creates a cozy yet professional environment suitable for various times of day.",
+            text: "The laboratory features an organized u-shaped workstation configuration that maximizes floor space and facilitates movement. Each station is equipped with dedicated monitors and ergonomic seating, creating a professional environment for focused research.",
             img: labRenders[0]
           }, {
-            text: "The design utilizes light polished tile flooring and wood-toned furniture to establish a warm, organic foundation. A deep forest-green accent wall provides a sophisticated contrast, adding depth and modern flair to the overall color scheme.",
+            text: "Wall-mounted linear shelving with integrated LED lighting provides resource space while enhancing ambient brightness. Tall, wood-toned cabinetry offers vertical storage that balances technical utility with organic warmth.",
             img: labRenders[1]
           }, {
-            text: "A rhythmic slatted timber ceiling serves as a key architectural feature, adding visual warmth and defining the primary dining zone. This textured element helps structure the space and distinguishes it from the expansive glass walls.",
+            text: "A grid-patterned drop ceiling with recessed LED panels provides the uniform, shadow-free illumination essential for a workspace. Large windows with horizontal blinds allow for precise control over natural light and glare.",
             img: labRenders[2]
           }, {
-            text: "The floor plan is optimized for flexibility, featuring a mix of individual tables and comfortable banquette seating. This functional arrangement supports a seamless transition from a casual coffee spot to a more formal dining setting while maintaining a clean flow.",
+            text: "The lab maintains a professional palette of cool grays and natural wood tones. Vibrant blue chair cushions serve as a color pop that defines individual zones and ties the space into the broader project aesthetic.",
             img: labRenders[3]
           }
         ]
