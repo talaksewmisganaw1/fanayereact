@@ -73,7 +73,7 @@ const projects = [
     description:
       "An Apartment Project I paticipated in rendering.",
   },
-    {
+  {
     id: 8,
     title: "Legacy Apartment",
     category: "Mixed",

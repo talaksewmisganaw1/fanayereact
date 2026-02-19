@@ -12,6 +12,48 @@ import sketchupLogo from '../assets/logos/sketchup.png'
 import d5Logo from '../assets/logos/d5logo.png'
 
 export default function About() {
+    const featuredProjects = [
+        {
+            id: '1',
+            title: 'Mixed Use Apartment',
+            year: '2018 E.C.',
+        },
+        {
+            id: '2',
+            title: 'Computer Laboratory',
+            year: '2018 E.C.',
+        },
+        {
+            id: '3',
+            title: 'Apartment Projects',
+            year: '2018 E.C.',
+        },
+        {
+            id: '4',
+            title: 'River Side Cafe',
+            year: '2018 E.C.',
+        },
+        {
+            id: '6',
+            title: 'Residencial Projects',
+            year: '2018 E.C.',
+        },
+        {
+            id: '8',
+            title: 'Legacy Apartment',
+            year: '2018 E.C.',
+        },
+        {
+            id: '10',
+            title: 'Gunna St. Michael Church',
+            year: '2018 E.C.',
+        },
+        {
+            id: '11',
+            title: 'Interior Design Rendering',
+            year: '2018 E.C.',
+        }
+    ]
   return (
     <section id="about">
         <div className="pt-14 md:px-18 sm:px-6 lg:px-8">
@@ -63,7 +105,16 @@ export default function About() {
                             <ul className="list-disc">
                                 <li><div className="sub-title text-lg font-[550]">Afewerk and Partners Architects</div></li>
                             </ul>
-                            <div className="year text-base">June, 2017 E.C. – Present</div>
+                            <div className="year text-base">June, 2017 E.C. – October, 2018 E.C.</div>
+                        </div>
+                        <h3 className="role ml-1 text-base font-semibold">Junior Architect</h3>
+                    </div>
+                    <div className="profile-description experience flex flex-col gap-4 ml-7 md:ml-14 mb-5">
+                        <div className="sb-ttl-yr flex justify-between items-center gap-8">
+                            <ul className="list-disc">
+                                <li><div className="sub-title text-lg font-[550]">Aldan Design and Build</div></li>
+                            </ul>
+                            <div className="year text-base">November, 2018 E.C. – Present</div>
                         </div>
                         <h3 className="role ml-1 text-base font-semibold">Junior Architect</h3>
                     </div>
@@ -76,42 +127,14 @@ export default function About() {
                         Featured Projects
                         <div className="line2 inline-block h-0.5 w-full bg-gray-500 self-center ml-2"></div>
                     </h1>
-                    <div className="profile-description project-yr my-4 flex justify-between items-center gap-8 ml-7 md:ml-14">
-                        <ul className="list-disc">
-                            <li><div className="sub-title text-lg font-[550]">Legacy Apartment</div></li>
-                        </ul>
-                        <div className="year text-base">2018 E.C.</div>
-                    </div>
-                    <div className="profile-description project-yr my-4 flex justify-between items-center gap-8 ml-7 md:ml-14">
-                        <ul className="list-disc">
-                            <li><div className="sub-title text-lg font-[550]">G+1 Residence</div></li>
-                        </ul>
-                        <div className="year text-base">2018 E.C.</div>
-                    </div>
-                    <div className="profile-description project-yr my-4 flex justify-between items-center gap-8 ml-7 md:ml-14">
-                        <ul className="list-disc">
-                            <li><div className="sub-title text-lg font-[550]">Gunna St. Michael Church</div></li>
-                        </ul>
-                        <div className="year text-base">2018 E.C.</div>
-                    </div>
-                    <div className="profile-description project-yr my-4 flex justify-between items-center gap-8 ml-7 md:ml-14">
-                        <ul className="list-disc">
-                            <li><div className="sub-title text-lg font-[550]">G+2 Residence</div></li>
-                        </ul>
-                        <div className="year text-base">2018 E.C.</div>
-                    </div>
-                    <div className="profile-description project-yr my-4 flex justify-between items-center gap-8 ml-7 md:ml-14">
-                        <ul className="list-disc">
-                            <li><div className="sub-title text-lg font-[550]">G+2 Residence</div></li>
-                        </ul>
-                        <div className="year text-base">2018 E.C.</div>
-                    </div>
-                    <div className="profile-description project-yr my-4 flex justify-between items-center gap-8 ml-7 md:ml-14">
-                        <ul className="list-disc">
-                            <li><div className="sub-title text-lg font-[550]">Interior Design Rendering</div></li>
-                        </ul>
-                        <div className="year text-base">2018 E.C.</div>
-                    </div>
+                    {featuredProjects.map((project, index) => (
+                        <div key={index} className="profile-description project-yr my-4 flex justify-between items-center gap-8 ml-7 md:ml-14">
+                            <ul className="list-disc">
+                                <li><div className="sub-title text-lg font-[550]">{project.title}</div></li>
+                            </ul>
+                            <div className="year text-base">{project.year}</div>
+                        </div>
+                    ))}
                 </div>
                 
                 <div className="profile education mt-12">
