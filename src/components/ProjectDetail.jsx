@@ -55,8 +55,7 @@ export default function ProjectDetail({ projectIndex, setHome }) {
         year: "2018 E.C.",
         location: "Addis Ababa, Ethiopia",
         description: [
-          "A G+11 mixed apartment located in Piassa. I was responsible for preparing the complete working drawings, ensuring that architectural details were accurate and construction-ready.",
-          "I also created a high-quality video rendering to help visualize the building's design, materials, and overall aesthetic. The renderings provided a clear understanding of spatial relationships and design intent for the client."
+          "A G+11 mixed apartment located in Piassa. The first steel structure building in Ethiopia, I was responsible for preparing the complete working drawings, ensuring that architectural details were accurate and construction-ready.",
         ],
         contents: [
           {
@@ -64,7 +63,7 @@ export default function ProjectDetail({ projectIndex, setHome }) {
             author: "Afewerk K",
             img: piassaRenders[0]
           },  {
-            text: "designed using a cold-formed steel structure, allowing for precise, lightweight, and highly durable construction. This method supports flexible layouts and clean architectural lines, making it ideal for modern design while ensuring long-term structural stability.",
+            text: "This is the first steel structure building in Ethiopia. designed using a cold-formed steel structure, allowing for precise, lightweight, and highly durable construction. This method supports flexible layouts and clean architectural lines, making it ideal for modern design while ensuring long-term structural stability.",
             img: piassaRenders[1]
           }, {
             text: "open and wide windows that maximize natural light and create seamless visual connections with the outdoors. These expansive openings enhance the sense of space, making interiors feel bright, airy, and welcoming.",
@@ -90,8 +89,7 @@ export default function ProjectDetail({ projectIndex, setHome }) {
         year: "2018 E.C.",
         location: "Addis Ababa, Ethiopia",
         description: [
-          "A contemporary office interior project where I contributed to the architectural visualization and rendering process. The design focuses on creating a refined and functional executive workspace.",
-          "My role involved producing high-quality 3D renders that highlight the spatial layout, lighting design, and material composition of the office environment."
+          "A contemporary office interior project that I contributed to the architectural visualization and rendering process. The design focuses on creating a refined and functional executive workspace. My role involved producing high-quality 3D renders that highlight the spatial layout, lighting design, and material composition of the office environment."
         ],
         contents: [
           {
@@ -149,7 +147,7 @@ export default function ProjectDetail({ projectIndex, setHome }) {
         year: "2018 E.C.",
         location: "Addis Ababa, Ethiopia",
         description: [
-          "An educational facility project where I participated in the architectural rendering. The focus was on creating a functional yet modern aesthetic for a computer laboratory environment.",
+          "An educational facility project that I participated in the architectural rendering. The focus was on creating a functional yet modern aesthetic for a computer laboratory environment.",
           "My contribution involved producing detailed 3D visualizations that showcased the interior layout, lighting, and technical integration."
         ],
         contents: [
@@ -173,7 +171,7 @@ export default function ProjectDetail({ projectIndex, setHome }) {
         year: "2018 E.C.",
         location: "Addis Ababa, Ethiopia",
         description: [
-          "A residential apartment project where I was involved in interior design and rendering. I worked on selecting materials and colors that create a warm and inviting atmosphere.",
+          "A residential apartment project that I was involved in interior design and rendering. I worked on selecting materials and colors that create a warm and inviting atmosphere.",
           "The project showcases my ability to blend functionality with contemporary aesthetic choices in a residential setting."
         ],
         contents: [
@@ -254,7 +252,7 @@ export default function ProjectDetail({ projectIndex, setHome }) {
         year: "2018 E.C.",
         location: "Addis Ababa, Ethiopia",
         description: [
-          "A residential project in Koye where I performed architectural rendering. The goal was to present the client with a realistic view of their future home.",
+          "A residential project in Koye that I performed architectural rendering. The goal was to present the client with a realistic view of their future home.",
           "The renderings showcase the exterior design and the surrounding landscape, providing a comprehensive visualization of the project."
         ],
         contents: [
@@ -491,9 +489,18 @@ export default function ProjectDetail({ projectIndex, setHome }) {
       {/* Header Section */}
       <div className="mb-1 m-6 md:pb-12 md:mb-1">
         <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-1">
-          Project Showcase
+          {project.title || "Project Showcase"}
         </h1>
+
         <div className="h-1 w-20 bg-linear-to-r from-primary to-accent rounded-full" />
+        
+        {/* {project.description && (
+          <div className="mt-8 max-w-7xl text-lg text-foreground/80 flex flex-col gap-4 border mx-auto">
+            {project.description.map((desc, i) => (
+              <p key={i} className="leading-relaxed text-foreground/70">{desc}</p>
+            ))}
+          </div>
+        )} */}
       </div>
 
       <div className="w-full p-5">
