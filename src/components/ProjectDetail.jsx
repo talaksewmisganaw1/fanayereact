@@ -44,9 +44,82 @@ const fikirteRenders = Object.values(fikirteRendersImport).map(img => img.defaul
 const interiorRendersImport = import.meta.glob('/src/assets/interior/*.{jpg,png,jpeg,webp}', { eager: true });
 const interiorRenders = Object.values(interiorRendersImport).map(img => img.default);
 
+const ultraGlobalRendersImport = import.meta.glob('/src/assets/ultraGlobal/*.{jpg,png,jpeg,webp}', { eager: true });
+const officeRenders = Object.values(ultraGlobalRendersImport).map(img => img.default);
+
 export default function ProjectDetail({ projectIndex, setHome }) {
 
     const projectsList = [
+      {   
+        title: "Legacy Apartment",
+        year: "2018 E.C.",
+        location: "Addis Ababa, Ethiopia",
+        description: [
+          "A G+11 mixed apartment located in Piassa. I was responsible for preparing the complete working drawings, ensuring that architectural details were accurate and construction-ready.",
+          "I also created a high-quality video rendering to help visualize the building's design, materials, and overall aesthetic. The renderings provided a clear understanding of spatial relationships and design intent for the client."
+        ],
+        contents: [
+          {
+            text: "\“ Our design embraces Piassa's essence with a sophisticated color palette. A natural gradient of browns, from light to dark, creates elegant harmony with the historic surroundings,lending timeless warmth and distinction to Addis Legacy Apartment.\”",
+            author: "Afewerk K",
+            img: piassaRenders[0]
+          },  {
+            text: "designed using a cold-formed steel structure, allowing for precise, lightweight, and highly durable construction. This method supports flexible layouts and clean architectural lines, making it ideal for modern design while ensuring long-term structural stability.",
+            img: piassaRenders[1]
+          }, {
+            text: "open and wide windows that maximize natural light and create seamless visual connections with the outdoors. These expansive openings enhance the sense of space, making interiors feel bright, airy, and welcoming.",
+            img: piassaRenders[2]
+          }, {
+            text: "designed with a focus on spacious, well-organized interiors that maximize comfort and functionality. Thoughtful layout planning ensures smooth circulation between rooms and creates clearly defined areas for living, dining, and private activities.",
+            img: piassaRenders[3]
+          }, {
+            text: "",
+            img: [piassaRenders[4]]
+          }, {
+            text: "",
+            img: [piassaRenders[5]]
+          }, {
+            text: "",
+            img: [piassaRenders[6]]
+          }
+        ],
+        video: true
+      },
+      {
+        title: "Executive Office Interior",
+        year: "2018 E.C.",
+        location: "Addis Ababa, Ethiopia",
+        description: [
+          "A contemporary office interior project where I contributed to the architectural visualization and rendering process. The design focuses on creating a refined and functional executive workspace.",
+          "My role involved producing high-quality 3D renders that highlight the spatial layout, lighting design, and material composition of the office environment."
+        ],
+        contents: [
+          {
+            text: "The office is organized around a minimalist executive workstation that establishes a clear focal point while maintaining open circulation. Ergonomic visitor seating and a soft seating corner create a balanced space for both focused work and informal discussions.",
+            img: officeRenders[0]
+          },
+          {
+            text: "Large corner windows with horizontal blinds allow abundant natural light while offering expansive city views. The daylight enhances the bright interior palette and creates a comfortable and productive workspace.",
+            img: officeRenders[1]
+          },
+          {
+            text: "Built-in wall shelving with integrated LED lighting provides a combination of display and storage space. The warm wood tones contrast with the neutral interior, adding visual depth and sophistication to the office.",
+            img: officeRenders[2]
+          },
+          {
+            text: "A modern ceiling design featuring recessed lighting and a circular pendant fixture establishes a clean and contemporary atmosphere. The lighting scheme ensures balanced illumination while emphasizing the refined architectural details of the space.",
+            img: officeRenders[3]
+          },
+          {
+            text: "A refined workspace centered around a minimalist desk and built-in storage wall. Frosted glass partitions allow visual continuity and privacy, while the geometric ceiling lighting and neutral finishes reinforce the contemporary office aesthetic.",
+            img: officeRenders[4]
+          },
+          {
+            text: "A contemporary reception area featuring a minimalist ceiling with recessed spotlights and linear LED accents creates a sleek and professional atmosphere. The lighting design provides even illumination while highlighting the clean architectural lines, glass partition with frosted bands, and the modern reception desk, reinforcing the refined and corporate character of the space. ✨",
+            img: officeRenders[5]
+          }
+        ]
+      },
       {   
         title: "Mixed Use Apartment",
         year: "2018 E.C.",
@@ -265,41 +338,6 @@ export default function ProjectDetail({ projectIndex, setHome }) {
             img: [aptNewRenders[12]]
           }
         ]
-      },
-      {   
-        title: "Legacy Apartment",
-        year: "2018 E.C.",
-        location: "Addis Ababa, Ethiopia",
-        description: [
-          "A G+11 mixed apartment located in Piassa. I was responsible for preparing the complete working drawings, ensuring that architectural details were accurate and construction-ready.",
-          "I also created a high-quality video rendering to help visualize the building's design, materials, and overall aesthetic. The renderings provided a clear understanding of spatial relationships and design intent for the client."
-        ],
-        contents: [
-          {
-            text: "\“ Our design embraces Piassa's essence with a sophisticated color palette. A natural gradient of browns, from light to dark, creates elegant harmony with the historic surroundings,lending timeless warmth and distinction to Addis Legacy Apartment.\”",
-            author: "Afewerk K",
-            img: piassaRenders[0]
-          },  {
-            text: "designed using a cold-formed steel structure, allowing for precise, lightweight, and highly durable construction. This method supports flexible layouts and clean architectural lines, making it ideal for modern design while ensuring long-term structural stability.",
-            img: piassaRenders[1]
-          }, {
-            text: "open and wide windows that maximize natural light and create seamless visual connections with the outdoors. These expansive openings enhance the sense of space, making interiors feel bright, airy, and welcoming.",
-            img: piassaRenders[2]
-          }, {
-            text: "designed with a focus on spacious, well-organized interiors that maximize comfort and functionality. Thoughtful layout planning ensures smooth circulation between rooms and creates clearly defined areas for living, dining, and private activities.",
-            img: piassaRenders[3]
-          }, {
-            text: "",
-            img: [piassaRenders[4]]
-          }, {
-            text: "",
-            img: [piassaRenders[5]]
-          }, {
-            text: "",
-            img: [piassaRenders[6]]
-          }
-        ],
-        video: true
       },
       {
         title: "G+1 Residence",

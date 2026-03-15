@@ -15,18 +15,33 @@ import sholaAptImg from "../assets/covers/aptShola5.webp";
 import koyeResidenceImg from "../assets/covers/residenceKoye6.webp";
 import haileAptImg from "../assets/covers/aptHaile7.webp";
 import newAptImg from "../assets/covers/newApt8.webp";
-
+import ultraGlobalImg from "../assets/covers/ultraGlobal.webp";
 
 const projects = [
-    {
+  {
+    id: 9,
+    title: "Legacy Apartment",
+    category: "Mixed",
+    image: piassaImg,
+    description:
+      "G+11 Apartment I paticipated in working drawings and creating detailed video rendering.",
+  },{
+      id: 15,
+      title: "Modern Executive Office",
+      category: "Office",
+      image: ultraGlobalImg,
+      description:
+        "A modern executive office interior that I participated in rendering and visualization of the project.",
+  },
+  {
       id: 1,
       title: "Mixed Use Apartment",
       category: "Mixed",
       image: betelImg,
       description:
         "A Mixed Use Apartment I paticipated in rendering the project.",
-    },
-    {
+  },
+  {
     id: 2,
     title: "Computer Laboratory",
     category: "Mixed",
@@ -81,14 +96,6 @@ const projects = [
     image: newAptImg,
     description:
       "An Apartment Project I paticipated in interior designing and rendering.",
-  },
-  {
-    id: 9,
-    title: "Legacy Apartment",
-    category: "Mixed",
-    image: piassaImg,
-    description:
-      "G+11 Apartment I paticipated in working drawings and creating detailed video rendering.",
   },
   {
     id: 10,
