@@ -7,6 +7,9 @@ import betelImg from "../assets/covers/betel1.webp";
 import labImg from "../assets/covers/lab2.webp";
 import brookImg from "../assets/covers/brook3.webp";
 import ultraGlobalImg from "../assets/covers/ultraGlobal.webp";
+import terraceGameZoneImg from "../assets/covers/terraceGameZone.webp";
+import pandaRestaurantImg from "../assets/covers/pandaRestaurant.webp";
+import mediaDesignImg from "../assets/covers/mediaDesign.webp";
 
 const projects = [
   {
@@ -55,6 +58,30 @@ const projects = [
     image: fikirteImg,
     description:
       "A G+2 residence I contributed to creating working drawings and  design details for a smooth construction process.",
+  },
+  {
+    id: 16,
+    title: "Terrace Home Game Zone",
+    category: "Interior",
+    image: terraceGameZoneImg,
+    description:
+      "A luxury terrace recreation lounge featuring modern gaming setups, billiard table, and ambient lighting.",
+  },
+  {
+    id: 17,
+    title: "Panda Restaurant",
+    category: "Commercial",
+    image: pandaRestaurantImg,
+    description:
+      "A contemporary Asian restaurant interior blending traditional cultural motifs with modern dining aesthetics.",
+  },
+  {
+    id: 18,
+    title: "Midea Showroom",
+    category: "Commercial",
+    image: mediaDesignImg,
+    description:
+      "A modern retail showroom design for Midea home appliances with dedicated product display zones.",
   },
 ];
 

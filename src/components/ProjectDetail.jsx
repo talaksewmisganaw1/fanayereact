@@ -6,7 +6,9 @@ const betelMixedRendersImport = import.meta.glob('/src/assets/1betelMixed/render
 const betelMixedRenders = Object.values(betelMixedRendersImport).map(img => img.default);
 
 const labRendersImport = import.meta.glob('/src/assets/2lab/renders/*.{jpg,png,jpeg,webp}', { eager: true });
-const labRenders = Object.values(labRendersImport).map(img => img.default);
+const labRenders = Object.entries(labRendersImport)
+  .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
+  .map(([, img]) => img.default);
 
 const brookAptRendersImport = import.meta.glob('/src/assets/3brookApt/renders/*.{jpg,png,jpeg,webp}', { eager: true });
 const brookAptRenders = Object.values(brookAptRendersImport).map(img => img.default);
@@ -19,6 +21,21 @@ const fikirteRenders = Object.values(fikirteRendersImport).map(img => img.defaul
 
 const ultraGlobalRendersImport = import.meta.glob('/src/assets/ultraGlobal/*.{jpg,png,jpeg,webp}', { eager: true });
 const officeRenders = Object.values(ultraGlobalRendersImport).map(img => img.default);
+
+const terraceGameZoneRendersImport = import.meta.glob('/src/assets/terrace home game zone/renders/*.{jpg,png,jpeg,webp}', { eager: true });
+const terraceGameZoneRenders = Object.entries(terraceGameZoneRendersImport)
+  .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
+  .map(([, img]) => img.default);
+
+const pandaRestaurantRendersImport = import.meta.glob('/src/assets/panda restaurant design/renders/*.{jpg,png,jpeg,webp}', { eager: true });
+const pandaRestaurantRenders = Object.entries(pandaRestaurantRendersImport)
+  .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
+  .map(([, img]) => img.default);
+
+const mediaDesignRendersImport = import.meta.glob('/src/assets/media design/renders/*.{jpg,png,jpeg,webp}', { eager: true });
+const mediaDesignRenders = Object.entries(mediaDesignRendersImport)
+  .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
+  .map(([, img]) => img.default);
 
 export default function ProjectDetail({ projectIndex, setHome }) {
 
@@ -192,6 +209,115 @@ export default function ProjectDetail({ projectIndex, setHome }) {
             img: fikirteRenders[3]
           }
         ]
+    },
+    {
+      title: "Terrace Home Game Zone",
+      year: "2018 E.C.",
+      location: "Addis Ababa, Ethiopia",
+      description: [
+        "A modern terrace recreation and entertainment lounge designed for ultimate home leisure. The project integrates state-of-the-art gaming setups, a professional billiard zone, custom acoustic details, and immersive lighting design.",
+        "I participated in the 3D visualization, spatial planning, and interior rendering of the space to showcase its dynamic ambiance."
+      ],
+      contents: [
+        {
+          text: "The entertainment lounge is organized around custom curved sofas with ambient LED base lighting, facing dual large-format gaming displays and media consoles for an immersive recreation experience.",
+          img: terraceGameZoneRenders[0]
+        },
+        {
+          text: "The dedicated gaming zone features a classic foosball table, custom graphic controller wall art, and direct access to full-height terrace glass windows that bring in natural light.",
+          img: terraceGameZoneRenders[1]
+        },
+        {
+          text: "A centrally positioned regulation billiard table is illuminated by a sculptural wave LED pendant fixture, complemented by light oak flooring and adjustable window blinds.",
+          img: terraceGameZoneRenders[2]
+        },
+        {
+          text: "A focused view of the entertainment center with fluted dark wood acoustic wall paneling, low-profile media cabinetry, and high-fidelity sound integration.",
+          img: terraceGameZoneRenders[3]
+        },
+        {
+          text: "",
+          img: [terraceGameZoneRenders[4], terraceGameZoneRenders[5]]
+        },
+        {
+          text: "",
+          img: [terraceGameZoneRenders[6]]
+        }
+      ]
+    },
+    {
+      title: "Panda Restaurant",
+      year: "2018 E.C.",
+      location: "Addis Ababa, Ethiopia",
+      description: [
+        "An Asian-inspired contemporary dining restaurant interior combining traditional Chinese cultural aesthetics with modern minimalist design.",
+        "My contribution focused on the architectural visualization and detailed 3D rendering of the dining rooms, bar, and decorative spatial elements."
+      ],
+      contents: [
+        {
+          text: "An intimate private VIP dining room featuring a custom round banquet table with a rotating lazy susan, accented by a panoramic ink-wash bamboo mural and concealed ceiling cove lighting.",
+          img: pandaRestaurantRenders[0]
+        },
+        {
+          text: "The beverage and service counter integrates rich walnut millwork, an illuminated geometric wine display, and built-in trough planters with vibrant indoor greenery.",
+          img: pandaRestaurantRenders[1]
+        },
+        {
+          text: "The open dining layout incorporates natural wood dining furniture, black metal track lighting, and frosted decorative screen partitions that create private dining enclaves.",
+          img: pandaRestaurantRenders[2]
+        },
+        {
+          text: "A stylish bar counter featuring a dark marble waterfall surface, natural wood bar stools with metallic accents, and a warm backlit bottle display shelf.",
+          img: pandaRestaurantRenders[3]
+        },
+        {
+          text: "The main dining area features comfortable booth seating along accent walls with soft perimeter backlighting, framed by large windows overlooking the terrace.",
+          img: pandaRestaurantRenders[4]
+        },
+        {
+          text: "",
+          img: [pandaRestaurantRenders[5], pandaRestaurantRenders[6]]
+        },
+        {
+          text: "",
+          img: [pandaRestaurantRenders[7], pandaRestaurantRenders[8]]
+        },
+        {
+          text: "",
+          img: [pandaRestaurantRenders[9]]
+        }
+      ]
+    },
+    {
+      title: "Midea Showroom",
+      year: "2018 E.C.",
+      location: "Addis Ababa, Ethiopia",
+      description: [
+        "A sleek commercial retail showroom designed for Midea smart home appliances. The interior layout focuses on intuitive product categorization, modern brand identity, and high-end experiential displays.",
+        "I was responsible for producing realistic 3D visualizations and renders capturing the showroom's materials, lighting, and spatial zoning."
+      ],
+      contents: [
+        {
+          text: "The central showroom concourse showcases commercial beverage coolers and cooking ranges on illuminated display plinths, surrounded by branded overhead signage and directional ceiling tracks.",
+          img: mediaDesignRenders[0]
+        },
+        {
+          text: "A dedicated television display wall in matte charcoal finish contrasts with warm wood-framed alcoves for side-by-side refrigerator models.",
+          img: mediaDesignRenders[1]
+        },
+        {
+          text: "The appliance gallery features built-in microwave and oven wall units alongside compact countertop appliances, illuminated by generous natural daylight from curved curtain walls.",
+          img: mediaDesignRenders[2]
+        },
+        {
+          text: "An interactive cooking appliance demonstration counter featuring modern gas ranges with brushed stainless steel details and integrated promotional displays.",
+          img: mediaDesignRenders[3]
+        },
+        {
+          text: "A clean symmetrical view of the kitchen appliance section highlighting copper pendant lights and structured product alignment.",
+          img: mediaDesignRenders[4]
+        }
+      ]
     }
   ];
 
