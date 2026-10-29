@@ -1,4 +1,4 @@
-import React, { lazy, useEffect, useState}  from 'react'
+import React, { lazy, useEffect, useState } from 'react'
 import FeaturedProjects from './components/FeaturedProjects'
 // import Services from './components/Services'
 import About from './components/About'
@@ -20,20 +20,20 @@ export default function App() {
 
   return (
     <div>
-      <Opening  isAnimating={isAnimating} setIsAnimating={setIsAnimating} loader={loader} logoname={logoname} setLogoname={setLogoname} />
+      <Opening isAnimating={isAnimating} setIsAnimating={setIsAnimating} loader={loader} logoname={logoname} setLogoname={setLogoname} />
       {home && loader && <BuildingLoader setLoader={setLoader} />}
       {home && isAnimating && <>
-          <Navigation logoname={logoname}/>
-          <FeaturedProjects setHome={setHome} setProjectIndex={setProjectIndex} />
-          <About />
-          <Contact />
-          <Footer />
-        </>
+        <Navigation logoname={logoname} />
+        <FeaturedProjects setHome={setHome} setProjectIndex={setProjectIndex} />
+        <About />
+        <Contact />
+        <Footer />
+      </>
       }
       {!home && <>
-          <ProjectDetail projectIndex={projectIndex} setHome={setHome} />
-          <Footer />
-        </>
+        <ProjectDetail projectIndex={projectIndex} setHome={setHome} />
+        <Footer />
+      </>
       }
     </div>
   )

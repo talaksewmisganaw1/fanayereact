@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, Maximize2, ZoomIn, ArrowLeft } from "lucide-react";
 import "./detail.css"
+
 
 const betelMixedRendersImport = import.meta.glob('/src/assets/1betelMixed/renders/*.{jpg,png,jpeg,webp}', { eager: true });
 const betelMixedRenders = Object.values(betelMixedRendersImport).map(img => img.default);
@@ -103,7 +104,7 @@ export default function ProjectDetail({ projectIndex, setHome }) {
             img: officeRenders[4]
           },
           {
-            text: "A contemporary reception area featuring a minimalist ceiling with recessed spotlights and linear LED accents creates a sleek and professional atmosphere. The lighting design provides even illumination while highlighting the clean architectural lines, glass partition with frosted bands, and the modern reception desk, reinforcing the refined and corporate character of the space. ✨",
+            text: "A contemporary reception area featuring a minimalist ceiling with recessed spotlights and linear LED accents creates a sleek and professional atmosphere. The lighting design provides even illumination while highlighting the clean architectural lines, glass partition with frosted bands, and the modern reception desk, reinforcing the refined and corporate character of the space.",
             img: officeRenders[5]
           }
         ]
@@ -321,96 +322,336 @@ export default function ProjectDetail({ projectIndex, setHome }) {
     }
   ];
 
-  const project = projectsList[projectIndex]
+  const project = projectsList[projectIndex] || projectsList[0];
 
-  const [fixed, setFixed] = useState();
+  const [fixed, setFixed] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(null);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 10) {
-        setFixed(true)
+    const handleScroll = () => {
+      setFixed(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Separate narrative items from standalone gallery items
+  const narrativeItems = (project.contents || []).filter(
+    (item) => item.text && item.text.trim().length > 0
+  );
+
+  const galleryImages = [];
+  (project.contents || []).forEach((item) => {
+    if (!item.text || item.text.trim().length === 0) {
+      if (Array.isArray(item.img)) {
+        item.img.forEach((img) => {
+          if (img) galleryImages.push(img);
+        });
+      } else if (item.img) {
+        galleryImages.push(item.img);
       }
-      if (window.scrollY < 10) {
-        setFixed(false)
-      }
-    })
-  }, [])
+    }
+  });
+
+  // Flat list of all project images for seamless Lightbox traversal
+  const allProjectImages = [];
+  narrativeItems.forEach((item) => {
+    if (typeof item.img === "string" && item.img) {
+      allProjectImages.push(item.img);
+    } else if (Array.isArray(item.img)) {
+      allProjectImages.push(...item.img.filter(Boolean));
+    }
+  });
+  galleryImages.forEach((img) => {
+    if (!allProjectImages.includes(img)) {
+      allProjectImages.push(img);
+    }
+  });
+
+  const openLightbox = (imgSrc) => {
+    const idx = allProjectImages.indexOf(imgSrc);
+    setLightboxIndex(idx !== -1 ? idx : 0);
+  };
+
+  const closeLightbox = () => setLightboxIndex(null);
+
+  const nextLightbox = () => {
+    setLightboxIndex((prev) => (prev === null ? null : (prev + 1) % allProjectImages.length));
+  };
+
+  const prevLightbox = () => {
+    setLightboxIndex((prev) =>
+      prev === null ? null : (prev - 1 + allProjectImages.length) % allProjectImages.length
+    );
+  };
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowRight") nextLightbox();
+      if (e.key === "ArrowLeft") prevLightbox();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [lightboxIndex, allProjectImages.length]);
 
   return (
-    <div id="project-detail" className="bg-linear-to-br from-background via-background to-muted/30">
-      {/* Back Button */}
-      <button className={` ${fixed ? 'fixed' : ''} m-6 md:m-12 z-100 top-4 inline-flex items-center gap-2 px-2 py-2 bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:scale-105 font-medium text-sm rounded-full`}
-        onClick={() => {
-          setHome(true)
-          window.scrollTo(0, 0);
-        }
-        }
-      >
-        <ChevronLeft size={28} />
-      </button>
+    <div id="project-detail" className="bg-linear-to-br from-background via-background to-muted/30 min-h-screen pb-24 w-full max-w-full overflow-x-hidden">
+      {/* Sticky / Fixed Back to Projects Button */}
+      <div className="fixed top-4 sm:top-6 left-0 right-0 z-40 pointer-events-none">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <button
+            type="button"
+            className={`pointer-events-auto inline-flex items-center gap-2 px-4 py-2 sm:py-2.5 rounded-full transition-all duration-300 hover:scale-105 font-medium text-xs sm:text-sm cursor-pointer ${
+              fixed
+                ? "bg-card/95 backdrop-blur-md text-foreground hover:text-primary-foreground hover:bg-primary border border-border shadow-md"
+                : "bg-card/90 backdrop-blur-sm text-foreground hover:text-primary-foreground hover:bg-primary border border-border/80 shadow-xs"
+            }`}
+            onClick={() => {
+              setHome(true);
+              window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+            }}
+            aria-label="Back to projects"
+          >
+            <ArrowLeft size={16} />
+            <span>Back to Projects</span>
+          </button>
+        </div>
+      </div>
+
       {/* Header Section */}
-      <div className="mb-1 m-6 md:pb-12 md:mb-1">
-        <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-1">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-4">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-3 tracking-tight">
           {project.title || "Project Showcase"}
         </h1>
 
-        <div className="h-1 w-20 bg-linear-to-r from-primary to-accent rounded-full" />
-        
-        {/* {project.description && (
-          <div className="mt-8 max-w-7xl text-lg text-foreground/80 flex flex-col gap-4 border mx-auto">
-            {project.description.map((desc, i) => (
-              <p key={i} className="leading-relaxed text-foreground/70">{desc}</p>
+        <div className="h-1.5 w-20 bg-linear-to-r from-primary to-accent rounded-full" />
+      </div>
+
+      {/* Narrative Section (Images with Descriptions: No crop, preserved proportion) */}
+      {narrativeItems.length > 0 && (
+        <div className="w-full flex flex-col gap-10 md:gap-16 py-6">
+          {narrativeItems.map((item, index) => {
+            const isEven = index % 2 === 0;
+            return (
+              <div
+                key={index}
+                className={`${index % 2 === 1 ? "bg-muted/40 py-10" : "py-4"} transition-colors`}
+              >
+                <div
+                  className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center"
+                >
+                  {/* Image side - strictly preserving aspect ratio, zero crop, zero distortion */}
+                  <div className={`md:col-span-7 ${isEven ? "md:order-1" : "md:order-2"} flex items-center justify-center w-full`}>
+                    <div
+                      onClick={() => openLightbox(item.img)}
+                      className="group relative max-w-full rounded-2xl overflow-hidden bg-card/60 border border-border/70 hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-lg cursor-pointer"
+                    >
+                      <img
+                        src={item.img}
+                        alt={`${project.title} detail ${index + 1}`}
+                        className="w-full h-auto max-h-[560px] object-contain block mx-auto transition-transform duration-500 group-hover:scale-[1.01]"
+                      />
+                      {/* Clean corner icon affordance without any dark overlay covering the image */}
+                      <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                        <span className="p-2 bg-black/60 text-white rounded-full backdrop-blur-md flex items-center justify-center shadow-md">
+                          <Maximize2 size={14} />
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Text side - No "Perspective 1/2" text label */}
+                  <div className={`md:col-span-5 ${isEven ? "md:order-2" : "md:order-1"} flex flex-col justify-center w-full`}>
+                    {item.author ? (
+                      <blockquote className="relative pl-4 border-l-2 border-primary/60">
+                        <p className="text-base md:text-lg text-foreground/85 leading-relaxed italic font-serif">
+                          {item.text}
+                        </p>
+                        <footer className="mt-3 text-sm font-medium not-italic text-foreground/60">
+                          — {item.author}
+                        </footer>
+                      </blockquote>
+                    ) : (
+                      <p className="text-base md:text-lg text-foreground/85 leading-relaxed font-normal">
+                        {item.text}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Visual Perspectives Gallery (No descriptions: 100% full natural proportion masonry) */}
+      {galleryImages.length > 0 && (
+        <section className="mt-12 md:mt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-8 pb-4 border-b border-border/60">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+              Perspectives & Architectural Studies
+            </h2>
+            <p className="text-sm md:text-base text-foreground/60 mt-1 max-w-2xl">
+              Additional high-resolution renders displayed in their natural proportions without cropping.
+            </p>
+          </div>
+
+          {/* Masonry Columns Layout */}
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6">
+            {galleryImages.map((src, idx) => (
+              <div
+                key={idx}
+                onClick={() => openLightbox(src)}
+                className="break-inside-avoid mb-6 group relative rounded-2xl overflow-hidden bg-card border border-border/70 hover:border-primary/50 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
+              >
+                <img
+                  src={src}
+                  alt={`${project.title} study ${idx + 1}`}
+                  loading="lazy"
+                  className="w-full h-auto block object-contain transition-transform duration-500 group-hover:scale-[1.015]"
+                />
+                {/* Clean corner icon affordance without any dark overlay covering the image */}
+                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                  <span className="p-2 bg-black/60 text-white rounded-full backdrop-blur-md flex items-center justify-center shadow-md">
+                    <Maximize2 size={14} />
+                  </span>
+                </div>
+              </div>
             ))}
           </div>
-        )} */}
-      </div>
+        </section>
+      )}
 
-      <div className="w-full p-5">
+      {/* Video Presentation */}
+      {project.video && (
+        <section className="w-full max-w-5xl mx-auto my-16 px-4 sm:px-6 lg:px-8">
+          <div className="mb-4">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground">
+              Video Presentation
+            </h3>
+          </div>
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-border/60 bg-black">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/3BLfain9X_w?si=cag90jbKqpg_Gl1C"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+        </section>
+      )}
 
-        {/* 1st (odd) */}
-        {project.contents.map((item, index) => {
-          return <>
-            {item.text ?
-            <div className={`${index % 2 === 1 ? "bg-muted/90" : ""}  mx-[-1.25rem] p-[1.2rem]`}>
-              <div className={`w-full flex flex-col md:flex-row items-center justify-between gap-1 md:h-[600px] max-w-7xl m-auto`}>
-                <div className={`${index % 2 === 0 ? "md:order-2" : "md:order-1"} order-2 w-[80%] md:w-[50%] text-base md:text-lg text-foreground/60 pl-9 pb-9 pr-2 md:pr-9 mb-18 mt-8 flex flex-col items-end ml-auto justify-end md:items-center md:justify-center text-center`}>{item.text}
-                  {item.author && <div className="my-4 w-full flex justify-end pr-5 italic">{item.author}</div>}
-                </div>
-                <div className={`${index % 2 === 0 ? "md:order-1" : "md:order-2 border border-white"} w-full bg-red-300 aspect-[1/0.85] shimmer order-1 md:w-[50%] flex items-center justify-center`}>
-                  <img src={item.img} className="h-full object-cover" alt="" />
-                </div>
-              </div>
-            </div>:
-            <div className={`${index % 2 === 1 ? "bg-muted/90 mx-[-1.25rem] px-[1.2rem]" : ""}`}>
-              <div className={`${item.img.length === 2 ? "flex-col md:flex-row justify-between":"flex-col justify-center"} h-fit gap-5 items-center w-full py-5 flex flex-col md:flex-row gap-6 md:h-[500px] max-w-7xl m-auto`}>
-                  <div className={`${item.img.length === 2 ? "w-full md:w-[48%] max-h-[90%]" : "w-fit"} h-full overflow-hidden`}>
-                    <img src={item.img[0]} className="w-full h-full object-fill" alt="" />
-                  </div>
-                  {item.img[1] && <div className={`${item.img.length === 2 ? "w-full md:w-[48%] max-h-[90%]" : "w-full"} h-full overflow-hidden`}>
-                    <img src={item.img[1]} className="w-full h-full object-cover" alt="" />
-                  </div>}
-              </div>
+
+      {/* Fullscreen Lightbox Modal (Zero crop, zoom & pan inspection) */}
+      {lightboxIndex !== null && allProjectImages.length > 0 && (
+        <div
+          className="fixed inset-0 z-[300] bg-black/98 flex flex-col justify-between p-4 sm:p-6 animate-fadeIn select-none"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) closeLightbox();
+          }}
+        >
+          {/* Top Header */}
+          <div className="relative z-50 flex items-center justify-between w-full max-w-7xl mx-auto py-2 px-2 pointer-events-auto">
+            <div className="flex items-center gap-3">
+              <span className="text-xs uppercase tracking-widest font-semibold px-3 py-1 rounded-full bg-white/10 text-white/90 border border-white/20 shadow-sm">
+                {project.title}
+              </span>
+              <span className="text-white/70 text-sm font-mono">
+                {lightboxIndex + 1} / {allProjectImages.length}
+              </span>
             </div>
-            }
-          </>
-        }
-        )}
-      </div>
-      {
-        project.video &&
-        <div className="w:[90vw] lg:w-fit my-9 mx-auto flex justify-center items-center">
-          <iframe
-            className="w-[560px] h-[315px] lg:w-[1120px] lg:h-[630px]"
-            src="https://www.youtube.com/embed/3BLfain9X_w?si=cag90jbKqpg_Gl1C"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
-        </div>
-      }
 
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                closeLightbox();
+              }}
+              aria-label="Close Lightbox"
+              className="relative z-50 p-2.5 rounded-full bg-white/15 text-white hover:bg-white/30 transition-all duration-200 cursor-pointer hover:rotate-90 pointer-events-auto shadow-md"
+            >
+              <X size={24} />
+            </button>
+          </div>
+
+          {/* Center Display: 100% UNCOMPROMISED ASPECT RATIO, ZERO CROP */}
+          <div
+            className="relative flex-1 flex items-center justify-center p-2 sm:p-6 overflow-hidden"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) closeLightbox();
+            }}
+          >
+            {allProjectImages.length > 1 && (
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  prevLightbox();
+                }}
+                aria-label="Previous Image"
+                className="absolute left-2 sm:left-6 z-30 p-3 rounded-full bg-black/70 text-white/90 hover:text-white hover:bg-black/95 border border-white/15 backdrop-blur-md transition-all duration-200 hover:scale-110 cursor-pointer pointer-events-auto"
+              >
+                <ChevronLeft size={28} />
+              </button>
+            )}
+
+            <img
+              key={lightboxIndex}
+              src={allProjectImages[lightboxIndex]}
+              alt={`${project.title} view ${lightboxIndex + 1}`}
+              className="max-h-[82vh] max-w-[92vw] object-contain rounded-xl shadow-2xl animate-modalZoom pointer-events-auto"
+            />
+
+            {allProjectImages.length > 1 && (
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  nextLightbox();
+                }}
+                aria-label="Next Image"
+                className="absolute right-2 sm:right-6 z-30 p-3 rounded-full bg-black/70 text-white/90 hover:text-white hover:bg-black/95 border border-white/15 backdrop-blur-md transition-all duration-200 hover:scale-110 cursor-pointer pointer-events-auto"
+              >
+                <ChevronRight size={28} />
+              </button>
+            )}
+          </div>
+
+          {/* Bottom Thumbnails Strip */}
+          {allProjectImages.length > 1 && (
+            <div className="relative z-30 w-full max-w-4xl mx-auto flex items-center justify-center gap-2 overflow-x-auto py-2 px-4 pointer-events-auto">
+              {allProjectImages.map((thumb, tIdx) => (
+                <button
+                  key={tIdx}
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setLightboxIndex(tIdx);
+                  }}
+                  className={`shrink-0 w-12 h-12 rounded-lg overflow-hidden border-2 transition-all duration-200 cursor-pointer pointer-events-auto ${
+                    tIdx === lightboxIndex
+                      ? "border-primary scale-110 shadow-lg"
+                      : "border-transparent opacity-45 hover:opacity-100"
+                  }`}
+                >
+                  <img src={thumb} className="w-full h-full object-cover" alt="" />
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
+

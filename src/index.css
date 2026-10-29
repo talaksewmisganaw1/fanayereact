@@ -119,12 +119,16 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
+  html,
+  body,
+  #root {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
   }
-
-
 }
+
 
 /* Added keyframe animations for building assembly loader */
 @keyframes buildingRise {

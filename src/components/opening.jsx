@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import './opening.css'
 
-export default function Opening({isAnimating, setIsAnimating, loader, setLogoname}) {
+export default function Opening({ isAnimating, setIsAnimating, loader, setLogoname }) {
 
   const [ispadding, setIspadding] = useState(false)
 
   useEffect(() => {
-    if(loader === false ) {
+    if (loader === false) {
       const timerer = setTimeout(() => {
         setIsAnimating(true)
       }, 5000)
@@ -16,20 +16,20 @@ export default function Opening({isAnimating, setIsAnimating, loader, setLogonam
   }, [loader])
 
   useEffect(() => {
-    if(isAnimating) {
-          const timerer = setTimeout(() => {
-            setIspadding(true);
-            const opening = document.querySelector(".splash-container");
-            opening.classList.remove("z-40");
-            opening.classList.add("-z-40");
+    if (isAnimating) {
+      const timerer = setTimeout(() => {
+        setIspadding(true);
+        const opening = document.querySelector(".splash-container");
+        opening.classList.remove("z-40");
+        opening.classList.add("-z-40");
 
-            setLogoname(true);
+        setLogoname(true);
 
-            const name = document.querySelector(".name");
-            name.classList.add("hidden");
-          }, 1100)
+        const name = document.querySelector(".name");
+        name.classList.add("hidden");
+      }, 1100)
 
-          return () => clearTimeout(timerer)
+      return () => clearTimeout(timerer)
     }
 
 
@@ -41,7 +41,7 @@ export default function Opening({isAnimating, setIsAnimating, loader, setLogonam
       <div className={`splash-section left ${isAnimating ? 'animate-left' : ''} w-[45%] bg-linear-to-r from-background to-muted`}>
         <div className="splash-content h-full relative">
           <div className="text-wrapper mt-[17vh] relative">
-            <h1 className={`${!loader? ' animate-fade-in ': '' } splash-text font-rougeScript font-medium text-accent/85 text-[11vh] md:text-[16vh] lg:text-[17vh]`}>Hey,</h1>
+            <h1 className={`${!loader ? ' animate-fade-in ' : ''} splash-text font-rougeScript font-medium text-accent/85 text-[11vh] md:text-[16vh] lg:text-[17vh]`}>Hey,</h1>
             <h1 className="text-[5vh] md:text-[7vh] lg:text-[10vh] text-foreground/85 mt-[3vh] md:mt-[2.7vh] lg:mt-[1vh] relative text-end mr-2 font-[Georgia]">I am</h1>
           </div>
         </div>
@@ -54,7 +54,7 @@ export default function Opening({isAnimating, setIsAnimating, loader, setLogonam
         </div>
       </div>
 
-      <div className={`${!loader? ' animate-fade-in ': '' } ${isAnimating ? ' go-top ' : ''} ${ispadding? ' md:ml-4 lg:pl-[8.4vw] h-20 flex items-center text-accent ': ''} name font-[Delius] fixed mt-0 text-accent w-full`}>Fanaye Girma</div>
+      <div className={`${!loader ? ' animate-fade-in ' : ''} ${isAnimating ? ' go-top ' : ''} ${ispadding ? ' md:ml-4 lg:pl-[8.4vw] h-20 flex items-center text-accent ' : ''} name font-[Delius] fixed mt-0 text-accent w-full`}>Fanaye Girma</div>
 
     </div>
   )
